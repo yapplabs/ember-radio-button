@@ -1,6 +1,6 @@
 {
   "name": "ember-radio-button",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -31,7 +31,9 @@
     "glob": "^4.0.5"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "radio-button",
+    "button"
   ],
   "ember-addon": {
     "configPath": "tests/dummy/config"

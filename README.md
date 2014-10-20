@@ -2,10 +2,10 @@
 
 This is an ember-cli addon for an Ember `radio-button` component.
 
-It allows a group of radio buttons with different `checkedWhen` values
-to bind to a single property called `value`. Clicking on the component will set
-`value` to the value of `checkedWhen`. The radio button will be in a checked state
-when `value === checkedValue`.
+It allows a group of radio buttons with different `value` values
+to bind to a single property called `groupValue`. Clicking on the component will set
+`groupValue` to the value of `value`. The radio button will be in a checked state
+when `groupValue === value`.
 
 The component also exposes a `changed` action that allows you to do something
 when clicking one of your radio buttons results in the value changing. This is useful
@@ -13,10 +13,10 @@ if you want to autosave a model in response to a user action, rather than with a
 
 Handlebars:
 ```javascript
-{{#radio-button checkedWhen="green" value=color changed="colorChanged"}}
+{{#radio-button value="green" groupValue=color changed="colorChanged"}}
   Green
 {{/radio-button}}
-{{#radio-button checkedWhen="blue" value=color changed="colorChanged"}}
+{{#radio-button value="blue" groupValue=color changed="colorChanged"}}
   Blue
 {{/radio-button}}
 ```

@@ -1,15 +1,17 @@
 # ember-radio-button
 
-This is an ember-cli addon for an Ember `radio-button` component.
+ember-cli addon for an Ember `radio-button` component.
 
-It allows a group of radio buttons with different `value` values
-to bind to a single property called `groupValue`. Clicking on the component will set
-`groupValue` to the value of `value`. The radio button will be in a checked state
-when `groupValue === value`.
+It allows a group of radio buttons with different `value` properties
+to be compared to a single property called `groupValue`.
 
-The component also exposes a `changed` action that allows you to do something
-when clicking one of your radio buttons results in the value changing. This is useful
-if you want to autosave a model in response to a user action, rather than with an observer.
+Clicking on the component will set `groupValue` to `value`. The radio
+button will be in a checked state when `groupValue === value`.
+
+The component exposes a `changed` action that allows you to do something
+when clicking one of your radio buttons results in `groupValue` changing.
+This is useful if you want to autosave a model in response to a user action,
+rather than with an observer.
 
 Handlebars:
 ```javascript

@@ -13,6 +13,9 @@ when clicking one of your radio buttons results in `groupValue` changing.
 This is useful if you want to autosave a model in response to a user action,
 rather than with an observer.
 
+To install this addon in your ember-cli project, use `npm install ember-radio-button --save-dev`.
+Run the dummy app for examples and documentation.
+
 Handlebars:
 ```javascript
 {{#radio-button value="green" groupValue=color changed="colorChanged"}}

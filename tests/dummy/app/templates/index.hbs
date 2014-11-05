@@ -17,3 +17,46 @@
     Blue
   {{/radio-button}}
 </p>
+
+<h3>Disabled flag</h3>
+<p style="background-color: #F7F7F7;padding: 15px 20px;">
+  <code>
+    \{{#radio-button value=true groupValue=numbersDisabled}}<br>
+      &nbsp;&nbsp;Disabled<br>
+    \{{/radio-button}}<br>
+    \{{#radio-button value=false groupValue=numbersDisabled}}<br>
+      &nbsp;&nbsp;Enabled<br>
+    \{{/radio-button}}<br>
+
+    \{{#radio-button value="one" groupValue=number disabled=numbersDisabled}}<br>
+      &nbsp;&nbsp;One<br>
+    \{{/radio-button}}<br>
+    \{{#radio-button value="two" groupValue=number disabled=numbersDisabled}}<br>
+      &nbsp;&nbsp;Two<br>
+    \{{/radio-button}}<br>
+    \{{#radio-button value="three" groupValue=number disabled=numbersDisabled}}<br>
+      &nbsp;&nbsp;Three<br>
+    \{{/radio-button}}<br>
+  </code>
+</p>
+<strong>Numbers Disabled:</strong> {{numbersDisabled}}
+<strong>Number:</strong> {{number}}
+<p>
+  {{#radio-button value=true groupValue=numbersDisabled}}
+    Disabled
+  {{/radio-button}}
+  {{#radio-button value=false groupValue=numbersDisabled}}
+    Enabled
+  {{/radio-button}}
+</p>
+<p>
+  {{#radio-button value="one" groupValue=number disabled=numbersDisabled}}
+    One
+  {{/radio-button}}
+  {{#radio-button value="two" groupValue=number disabled=numbersDisabled}}
+    Two
+  {{/radio-button}}
+  {{#radio-button value="three" groupValue=number disabled=numbersDisabled}}
+    Three
+  {{/radio-button}}
+</p>

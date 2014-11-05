@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'span',
   classNames: 'radio-button',
-  classNameBindings: 'checked',
+  classNameBindings: ['checked', 'disabled'],
   value: null,
   groupValue: null,
   disabled: null,

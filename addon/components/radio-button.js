@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   classNameBindings: ['checked', 'disabled'],
   value: null,
   groupValue: null,
-  disabled: null,
+  disabled: false,
   scheduleChangedAction: function(){
     Ember.run.schedule('actions', this, function(){
       this.sendAction('changed', this.get('value'));

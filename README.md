@@ -44,7 +44,11 @@ Results in:
 
 This README outlines the details of collaborating on this Ember addon.
 
-## Installation
+## Installing
+
+`npm install ember-radio-button --save-dev`
+
+## Collaborating on this repo
 
 * `git clone` this repository
 * `npm install`

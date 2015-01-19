@@ -3,6 +3,7 @@ export default Ember.Controller.extend({
   color: 'green',
   number: 'one',
   numbersDisabled: true,
+  noDefault: '',
   actions: {
     colorChanged: function(color){
       window.alert('Color changed to ' + color);

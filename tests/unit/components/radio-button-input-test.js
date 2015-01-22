@@ -6,7 +6,7 @@ import {
 
 var run = Ember.run;
 
-moduleForComponent('radio-button-input', 'RadioButtonInputComponent', {});
+moduleForComponent('radio-button', 'RadioButtonComponent', {});
 
 test('it renders', function() {
   expect(2);

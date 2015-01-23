@@ -1,86 +1,86 @@
 <p style="background-color: #F7F7F7;padding: 15px 20px;">
   <code>
-    \{{#radio-button value="green" groupValue=color changed="colorChanged"}}<br>
+    \{{#labeled-radio-button value="green" groupValue=color changed="colorChanged"}}<br>
       &nbsp;&nbsp;Green<br>
-    \{{/radio-button}}<br>
-    \{{#radio-button value="blue" groupValue=color changed="colorChanged"}}<br>
+    \{{/labeled-radio-button}}<br>
+    \{{#labeled-radio-button value="blue" groupValue=color changed="colorChanged"}}<br>
       &nbsp;&nbsp;Blue<br>
-    \{{/radio-button}}<br>
+    \{{/labeled-radio-button}}<br>
   </code>
 </p>
 <strong>Selected Color:</strong> {{color}}
 <p>
-  {{#radio-button value="green" groupValue=color changed="colorChanged"}}
+  {{#labeled-radio-button tagName="label" value="green" groupValue=color changed="colorChanged"}}
     Green
-  {{/radio-button}}
-  {{#radio-button value="blue" groupValue=color changed="colorChanged"}}
+  {{/labeled-radio-button}}
+  {{#labeled-radio-button tagName="label" value="blue" groupValue=color changed="colorChanged"}}
     Blue
-  {{/radio-button}}
+  {{/labeled-radio-button}}
 </p>
 
 <h3>Disabled flag</h3>
 <p style="background-color: #F7F7F7;padding: 15px 20px;">
   <code>
-    \{{#radio-button value=true groupValue=numbersDisabled}}<br>
+    \{{#labeled-radio-button value=true groupValue=numbersDisabled}}<br>
       &nbsp;&nbsp;Disabled<br>
-    \{{/radio-button}}<br>
-    \{{#radio-button value=false groupValue=numbersDisabled}}<br>
+    \{{/labeled-radio-button}}<br>
+    \{{#labeled-radio-button value=false groupValue=numbersDisabled}}<br>
       &nbsp;&nbsp;Enabled<br>
-    \{{/radio-button}}<br>
+    \{{/labeled-radio-button}}<br>
 
-    \{{#radio-button value="one" groupValue=number disabled=numbersDisabled}}<br>
+    \{{#labeled-radio-button value="one" groupValue=number disabled=numbersDisabled}}<br>
       &nbsp;&nbsp;One<br>
-    \{{/radio-button}}<br>
-    \{{#radio-button value="two" groupValue=number disabled=numbersDisabled}}<br>
+    \{{/labeled-radio-button}}<br>
+    \{{#labeled-radio-button value="two" groupValue=number disabled=numbersDisabled}}<br>
       &nbsp;&nbsp;Two<br>
-    \{{/radio-button}}<br>
-    \{{#radio-button value="three" groupValue=number disabled=numbersDisabled}}<br>
+    \{{/labeled-radio-button}}<br>
+    \{{#labeled-radio-button value="three" groupValue=number disabled=numbersDisabled}}<br>
       &nbsp;&nbsp;Three<br>
-    \{{/radio-button}}<br>
+    \{{/labeled-radio-button}}<br>
   </code>
 </p>
 <strong>Numbers Disabled:</strong> {{numbersDisabled}}
 <strong>Number:</strong> {{number}}
 <p>
-  {{#radio-button value=true groupValue=numbersDisabled}}
+  {{#labeled-radio-button value=true groupValue=numbersDisabled}}
     Disabled
-  {{/radio-button}}
-  {{#radio-button value=false groupValue=numbersDisabled}}
+  {{/labeled-radio-button}}
+  {{#labeled-radio-button value=false groupValue=numbersDisabled}}
     Enabled
-  {{/radio-button}}
+  {{/labeled-radio-button}}
 </p>
 <p>
-  {{#radio-button value="one" groupValue=number disabled=numbersDisabled}}
+  {{#labeled-radio-button value="one" groupValue=number disabled=numbersDisabled}}
     One
-  {{/radio-button}}
-  {{#radio-button value="two" groupValue=number disabled=numbersDisabled}}
+  {{/labeled-radio-button}}
+  {{#labeled-radio-button value="two" groupValue=number disabled=numbersDisabled}}
     Two
-  {{/radio-button}}
-  {{#radio-button value="three" groupValue=number disabled=numbersDisabled}}
+  {{/labeled-radio-button}}
+  {{#labeled-radio-button value="three" groupValue=number disabled=numbersDisabled}}
     Three
-  {{/radio-button}}
+  {{/labeled-radio-button}}
 </p>
 
 <h3>Required</h3>
 <p style="background-color: #F7F7F7;padding: 15px 20px;">
   <code>
-    \{{#radio-button value=true groupValue=noDefault name="no-default" required=true}}<br>
+    \{{#labeled-radio-button value=true groupValue=noDefault name="no-default" required=true}}<br>
       &nbsp;&nbsp;Disabled<br>
-    \{{/radio-button}}<br>
-    \{{#radio-button value=false groupValue=noDefault name="no-default"}}<br>
+    \{{/labeled-radio-button}}<br>
+    \{{#labeled-radio-button value=false groupValue=noDefault name="no-default"}}<br>
       &nbsp;&nbsp;Enabled<br>
-    \{{/radio-button}}
+    \{{/labeled-radio-button}}
   </code>
 </p>
 <strong>No Default:</strong> {{noDefault}}
 <p>
   <form>
-    {{#radio-button value=fale groupValue=noDefault name="no-default" required=true}}
+    {{#labeled-radio-button value=fale groupValue=noDefault name="no-default" required=true}}
       Disabled
-    {{/radio-button}}
-    {{#radio-button value=true groupValue=noDefault name="no-default"}}
+    {{/labeled-radio-button}}
+    {{#labeled-radio-button value=true groupValue=noDefault name="no-default"}}
       Enabled
-    {{/radio-button}}<br>
+    {{/labeled-radio-button}}<br>
     <button type="submit">Submit</button>
   </form>
 </p>

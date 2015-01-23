@@ -9,7 +9,7 @@ Clicking on the component will set `groupValue` to `value`. The radio
 button will be in a checked state when `groupValue === value`.
 
 The component exposes a `changed` action that allows you to do something
-when clicking one of your radio buttons results in `groupValue` changing.
+when a user interaction causes one of your radio buttons to update `groupValue`.
 This is useful if you want to autosave a model in response to a user action,
 rather than with an observer.
 
@@ -18,28 +18,27 @@ Run the dummy app for examples and documentation.
 
 Handlebars:
 ```javascript
-{{#radio-button value="green" groupValue=color changed="colorChanged"}}
-  Green
-{{/radio-button}}
-{{#radio-button value="blue" groupValue=color changed="colorChanged"}}
-  Blue
-{{/radio-button}}
+{{radio-button
+    value="green"
+    groupValue=color
+    changed="colorChanged"}}
+
+{{#labeled-radio-button
+    value="blue"
+    groupValue=color
+    changed="colorChanged"}}
+    Blue
+{{/labeled-radio-button}}
 ```
 
 Results in:
 ```html
-<span id="ember336" class="ember-view radio-button">
-  <label>
-    <input id="ember345" class="ember-view" type="radio" value="green">
-    Green
-  </label>
-</span>
-<span id="ember347" class="ember-view radio-button checked">
-  <label>
-    <input id="ember348" class="ember-view" type="radio" value="blue">
-    Blue
-  </label>
-</span>
+<input id="ember345" class="ember-view" type="radio" value="green">
+
+<label id="ember346" class="ember-view">
+  <input id="ember347" class="ember-view" type="radio" value="blue">
+  Blue
+</label>
 ```
 
 This README outlines the details of collaborating on this Ember addon.

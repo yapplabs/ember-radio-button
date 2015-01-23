@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   tagName: 'label',
 
   actions: {
-    changed: function(value) {
+    innerRadioChanged: function(value) {
       this.sendAction('changed', value);
     }
   }

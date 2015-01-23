@@ -23,12 +23,12 @@ Handlebars:
     groupValue=color
     changed="colorChanged"}}
 
-{{#labeled-radio-button
+{{#radio-button
     value="blue"
     groupValue=color
     changed="colorChanged"}}
     Blue
-{{/labeled-radio-button}}
+{{/radio-button}}
 ```
 
 Results in:

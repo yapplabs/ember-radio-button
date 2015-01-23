@@ -6,7 +6,9 @@ import {
 
 var run = Ember.run;
 
-moduleForComponent('radio-button', 'RadioButtonComponent', {});
+moduleForComponent('radio-button', 'RadioButtonComponent', {
+  needs: ['template:components/labeled-radio-button']
+});
 
 test('it renders', function() {
   expect(2);
@@ -110,4 +112,16 @@ test('updates disabled when the disabled attribute changes', function() {
     component.set('disabled', false);
   });
   ok(component.$().is(':not(:disabled)'));
+});
+
+test('uses a layout, tagName=label, when given a template', function() {
+  var component = this.subject({
+    template: function() { return 'Red'; }
+  });
+
+  this.append();
+  ok(component.$().is('label'));
+  ok(component.$().is('label:contains(Red)'));
+
+  equal(component.$('input[type=radio]').length, 1);
 });

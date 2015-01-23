@@ -12,12 +12,6 @@ export default RadioButtonBase.extend({
   }).readOnly(),
 
   change: function() {
-    var previousChecked = this.get('checked');
-    var currentChecked = this.$().prop('checked');
-    if (previousChecked === currentChecked) {
-      return;
-    }
-
     var value = this.get('value');
     var groupValue = this.get('groupValue');
 

@@ -1,21 +1,11 @@
 import Ember from 'ember';
+import RadioButtonBase
+  from 'ember-radio-button/components/radio-button-base';
 
 var computed = Ember.computed;
 
-export default Ember.Component.extend({
-  tagName: 'input',
-  type: 'radio',
-  value: null,
+export default RadioButtonBase.extend({
   groupValue: null,
-
-  attributeBindings: [
-    'type',
-    'checked',
-    'value',
-    'disabled',
-    'required',
-    'name'
-  ],
 
   checked: computed('groupValue', 'value', function(){
     return this.get('groupValue') === this.get('value');
@@ -31,9 +21,8 @@ export default Ember.Component.extend({
     var value = this.get('value');
     var groupValue = this.get('groupValue');
 
-    this.set('groupValue', value);
-
     if (groupValue !== value){
+      this.set('groupValue', value);
       Ember.run.once(this, 'sendChangedAction');
     }
   },

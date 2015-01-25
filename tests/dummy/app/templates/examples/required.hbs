@@ -1,0 +1,23 @@
+<h3>Required</h3>
+<p style="background-color: #F7F7F7;padding: 15px 20px;">
+  <code>
+    \{{#radio-button value=true groupValue=noDefault name="no-default" required=true}}<br>
+      &nbsp;&nbsp;Disabled<br>
+    \{{/radio-button}}<br>
+    \{{#radio-button value=false groupValue=noDefault name="no-default"}}<br>
+      &nbsp;&nbsp;Enabled<br>
+    \{{/radio-button}}
+  </code>
+</p>
+<strong>No Default:</strong> {{noDefault}}
+<p>
+  <form>
+    {{#radio-button value=false groupValue=noDefault name="no-default" required=true}}
+      Disabled
+    {{/radio-button}}
+    {{#radio-button value=true groupValue=noDefault name="no-default"}}
+      Enabled
+    {{/radio-button}}<br>
+    <button type="submit">Submit</button>
+  </form>
+</p>

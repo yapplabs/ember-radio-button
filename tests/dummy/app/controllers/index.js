@@ -8,5 +8,8 @@ export default Ember.Controller.extend({
     colorChanged: function(color){
       window.alert('Color changed to ' + color);
     }
-  }
+  },
+  reservation: Ember.Object.create({
+    number: 'one'
+  }),
 });

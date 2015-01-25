@@ -53,12 +53,43 @@ test('it updates when clicked, and triggers the `changed` action', function() {
   equal(changedActionCallCount, 0);
   equal(component.$().prop('checked'), false);
 
-  component.$().trigger('click');
+  run(function() {
+    component.$().trigger('click');
+  });
 
   equal(component.$().prop('checked'), true, 'updates element property');
   equal(component.get('checked'), true, 'updates component property');
   equal(component.get('groupValue'), 'component-value', 'updates groupValue');
 
+  equal(changedActionCallCount, 1);
+});
+
+test('it updates when the browser change event is fired', function() {
+  var changedActionCallCount = 0;
+
+  var component = this.subject({
+    groupValue: 'initial-group-value',
+    value: 'component-value',
+    changed: 'changed',
+    targetObject: Ember.Controller.createWithMixins({
+      actions: {
+        changed: function() {
+          changedActionCallCount++;
+        }
+      }
+    })
+  });
+  this.append();
+
+  equal(changedActionCallCount, 0);
+  equal(component.$().prop('checked'), false);
+
+  run(function() {
+    component.$().prop('checked', true).trigger('change');
+  });
+
+  equal(component.get('checked'), true, 'updates component property');
+  equal(component.get('groupValue'), 'component-value', 'updates groupValue');
   equal(changedActionCallCount, 1);
 });
 

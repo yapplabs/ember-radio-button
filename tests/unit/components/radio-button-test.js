@@ -114,6 +114,49 @@ test('updates disabled when the disabled attribute changes', function() {
   ok(component.$().is(':not(:disabled)'));
 });
 
+test('begins with the `required` and `name` attributes when specified', function() {
+  var component = this.subject({
+    required: true,
+    name: 'colors'
+  });
+  this.append();
+
+  ok(component.$().attr('required'));
+  equal(component.$().attr('name'), 'colors');
+});
+
+test('updates the `required` attribute when the property changes', function() {
+  var component = this.subject();
+  this.append();
+
+  equal(component.$().attr('required'), null);
+
+  run(function() {
+    component.set('required', true);
+  });
+
+  ok(component.$().attr('required'));
+
+  run(function() {
+    component.set('required', false);
+  });
+
+  equal(component.$().attr('required'), null);
+});
+
+test('updates the `name` attribute when the property changes', function() {
+  var component = this.subject();
+  this.append();
+
+  equal(component.$().attr('name'), null);
+
+  run(function() {
+    component.set('name', 'colors');
+  });
+
+  ok(component.$().attr('name'), 'colors');
+});
+
 test('uses a layout, tagName=label, when given a template', function() {
   var component = this.subject({
     template: function() { return 'Red'; }

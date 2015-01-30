@@ -199,3 +199,33 @@ test('uses a layout, tagName=label, when given a template', function() {
 
   equal(component.$('input[type=radio]').length, 1);
 });
+
+test('it binds attributes only to the input when used as a block', function() {
+  var component = this.subject({
+    disabled: true,
+    name: 'some-name',
+    required: true,
+    value: 'blue',
+    groupValue: 'blue',
+    template: function() { return 'Blue'; }
+  });
+
+  this.append();
+  var $label = component.$();
+
+  ok($label.is('label'));
+  equal($label.attr('checked'), undefined);
+  equal($label.attr('disabled'), undefined);
+  equal($label.attr('name'), undefined);
+  equal($label.attr('required'), undefined);
+  equal($label.attr('type'), undefined);
+  equal($label.attr('value'), undefined);
+
+  var $input = component.$('input[type=radio]');
+  equal($input.length, 1);
+  equal($input.prop('checked'), true);
+  equal($input.prop('disabled'), true);
+  equal($input.attr('name'), 'some-name');
+  equal($input.prop('required'), true);
+  equal($input.attr('value'), 'blue');
+});

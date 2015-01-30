@@ -1,6 +1,9 @@
 import Ember from 'ember';
 import RadioButtonBase
   from 'ember-radio-button/components/radio-button-base';
+import {
+  boundAttributeKeys
+} from 'ember-radio-button/components/radio-button-base';
 
 var computed = Ember.computed;
 
@@ -15,6 +18,13 @@ export default RadioButtonBase.extend({
 
       // our change event handler becomes unused
       this.set('change', undefined);
+
+      // don't bind name, type, etc to the label
+      var originalAttrs = this.get('attributeBindings');
+      var updatedAttrs = Ember.copy(originalAttrs).removeObjects(
+        boundAttributeKeys
+      );
+      this.set('attributeBindings', updatedAttrs);
     }
   }.on('init'),
 

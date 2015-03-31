@@ -19,7 +19,7 @@
   "devDependencies": {
     "body-parser": "^1.2.0",
     "broccoli-asset-rev": "0.3.1",
-    "ember-cli": "0.1.7",
+    "ember-cli": "0.2.2",
     "ember-cli-content-security-policy": "0.3.0",
     "ember-cli-htmlbars": "^0.6.0",
     "ember-cli-ic-ajax": "0.1.1",

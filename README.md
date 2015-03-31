@@ -8,7 +8,7 @@ This ember-cli addon provides a `radio-button` component.
 Pass two properties to the component: `value` and `groupValue`.  A `radio-button`
  will be in a checked state when `groupValue === value`.
 
-Clicking on the radio button will set `groupValue` to its `value`. 
+Clicking on a `radio-button` will set `groupValue` to its `value`. 
 
 The component exposes a `changed` action that allows you to do something
 when a user interaction causes one of your radio buttons to update `groupValue`.

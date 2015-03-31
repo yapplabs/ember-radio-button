@@ -1,8 +1,9 @@
-# ember-radio-button
-[![Build Status](https://travis-ci.org/yapplabs/ember-radio-button.svg?branch=master)](https://travis-ci.org/yapplabs/ember-radio-button)
-[![Ember Observer Score](http://emberobserver.com/badges/ember-radio-button.svg)](http://emberobserver.com/addons/ember-radio-button)
+# ember-radio-button [![Build Status](https://travis-ci.org/yapplabs/ember-radio-button.svg?branch=master)](https://travis-ci.org/yapplabs/ember-radio-button) [![Ember Observer Score](http://emberobserver.com/badges/ember-radio-button.svg)](http://emberobserver.com/addons/ember-radio-button)
 
-ember-cli addon for an Ember `radio-button` component.
+**Note**: **ember-radio-button 1.0.0 requires using htmlbars**.  For applications not using htmlbars, use version 0.1.3 or the `pre-htmlbars`
+ branch
+
+### ember-radio-button is an ember-cli addon providing a `radio-button` component.
 
 It allows a group of radio buttons with different `value` properties
 to be compared to a single property called `groupValue`.

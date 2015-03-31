@@ -26,6 +26,7 @@ export default RadioButtonBase.extend({
         boundAttributeKeys
       );
       this.set('attributeBindings', updatedAttrs);
+      this.set('classNameBindings', ['checked']);
     }
   }),
 

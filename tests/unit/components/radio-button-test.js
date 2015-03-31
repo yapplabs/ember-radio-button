@@ -93,6 +93,25 @@ test('it updates when the browser change event is fired', function() {
   equal(changedActionCallCount, 1);
 });
 
+test('it gives the label of a wrapped checkbox a `checked` className', function() {
+  expect(2);
+
+  var component = this.subject({
+    groupValue: 'initial-group-value',
+    value: 'component-value',
+    template: function() { return 'Blue'; }
+  });
+  this.append();
+
+  equal(component.$().hasClass('checked'), false);
+
+  run(function() {
+    component.set('value', 'initial-group-value');
+  });
+
+  equal(component.$().hasClass('checked'), true);
+});
+
 test('it updates when setting `value`', function() {
   expect(3);
 

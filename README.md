@@ -3,7 +3,7 @@
 **Note**: **ember-radio-button 1.0.0 requires using htmlbars**.  For applications not using htmlbars, use version 0.1.3 or the `pre-htmlbars`
  branch
 
-### ember-radio-button is an ember-cli addon providing a `radio-button` component.
+This ember-cli addon provides a `radio-button` component.
 
 It allows a group of radio buttons with different `value` properties
 to be compared to a single property called `groupValue`.
@@ -16,10 +16,7 @@ when a user interaction causes one of your radio buttons to update `groupValue`.
 This is useful if you want to autosave a model in response to a user action,
 rather than with an observer.
 
-To install this addon in your ember-cli project, use `npm install ember-radio-button --save-dev`.
-Run the dummy app for examples and documentation.
-
-Handlebars:
+**Template:**
 ```javascript
 {{radio-button
     value="green"
@@ -34,7 +31,7 @@ Handlebars:
 {{/radio-button}}
 ```
 
-Results in:
+**Results in:**
 ```html
 <input id="ember345" class="ember-view" type="radio" value="green">
 
@@ -44,7 +41,7 @@ Results in:
 </label>
 ```
 
-This README outlines the details of collaborating on this Ember addon.
+See the dummy app and tests for more example usage
 
 ## Installing
 

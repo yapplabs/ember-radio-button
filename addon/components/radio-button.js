@@ -6,12 +6,13 @@ import {
 } from 'ember-radio-button/components/radio-button-base';
 
 var computed = Ember.computed;
+var on = Ember.on;
 
 export default RadioButtonBase.extend({
   value: null,
   groupValue: null,
 
-  wrapInLabelIfUsedAsBlock: function() {
+  wrapInLabelIfUsedAsBlock: on('init', function() {
     if (this.get('template')) {
       this.set('tagName', 'label');
       this.set('layoutName', 'components/labeled-radio-button');
@@ -26,7 +27,7 @@ export default RadioButtonBase.extend({
       );
       this.set('attributeBindings', updatedAttrs);
     }
-  }.on('init'),
+  }),
 
   checked: computed('groupValue', 'value', function(){
     return this.get('groupValue') === this.get('value');

@@ -38,11 +38,24 @@ when a user interaction causes one of your radio buttons to update `groupValue`.
 </label>
 ```
 
-See the dummy app and tests for more example usage
+You can additionally provide `disabled` `name` and `required` properties to a `radio-button`
+
+```javascript
+{{radio-button
+    value="green"
+    groupValue=color
+    required=true
+    disabled=true
+    name="color"}}
+```
+
+```html
+<input id="ember345" class="ember-view" type="radio" value="green" name="color" required disabled>
+```
 
 ## Installing
 
-`npm install ember-radio-button --save-dev`
+`ember install:addon ember-radio-button`
 
 ## Collaborating on this repo
 
@@ -50,7 +63,7 @@ See the dummy app and tests for more example usage
 * `npm install`
 * `bower install`
 
-## Running
+## Running the dummy app
 
 * `ember server`
 * Visit your app at http://localhost:4200.

@@ -1,4 +1,6 @@
 # ember-radio-button
+[![Build Status](https://travis-ci.org/yapplabs/ember-radio-button.svg?branch=master)](https://travis-ci.org/yapplabs/ember-radio-button)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-radio-button.svg)](http://emberobserver.com/addons/ember-radio-button)
 
 ember-cli addon for an Ember `radio-button` component.
 

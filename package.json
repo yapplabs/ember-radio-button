@@ -1,7 +1,7 @@
 {
   "name": "ember-radio-button",
   "description": "provides a radio-button component",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "directories": {
     "doc": "doc",
     "test": "tests"

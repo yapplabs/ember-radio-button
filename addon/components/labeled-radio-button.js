@@ -5,6 +5,7 @@ var computed = Ember.computed;
 export default Ember.Component.extend({
   tagName: 'label',
   classNameBindings: ['checked'],
+  classNames: ['ember-radio-button'],
 
   checked: computed('groupValue', 'value', function(){
     return this.get('groupValue') === this.get('value');

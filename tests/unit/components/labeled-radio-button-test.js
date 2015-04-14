@@ -11,13 +11,14 @@ moduleForComponent('labeled-radio-button', 'LabeledRadioButtonComponent', {
 });
 
 test('it renders', function() {
-  expect(2);
+  expect(3);
 
   var component = this.subject();
   equal(component._state, 'preRender');
 
   this.append();
   equal(component._state, 'inDOM');
+  equal(component.$().hasClass('ember-radio-button'), true, 'has ember-radio-button class');
 });
 
 test('it gives the label of a wrapped checkbox a `checked` className', function() {

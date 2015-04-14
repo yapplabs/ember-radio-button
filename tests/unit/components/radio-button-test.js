@@ -217,6 +217,7 @@ test('uses a layout, tagName=label, when given a template', function() {
   ok(component.$().is('label:contains(Red)'));
 
   equal(component.$('input[type=radio]').length, 1);
+  equal(component.$().hasClass('ember-radio-button'), true, 'has ember-radio-button class');
 });
 
 test('it binds attributes only to the input when used as a block', function() {

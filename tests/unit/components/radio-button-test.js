@@ -99,7 +99,7 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
   var component = this.subject({
     groupValue: 'initial-group-value',
     value: 'component-value',
-    class: 'blue-radio',
+    classNames: 'blue-radio',
     template: function() { return 'Blue'; }
   });
   this.append();

@@ -94,11 +94,12 @@ test('it updates when the browser change event is fired', function() {
 });
 
 test('it gives the label of a wrapped checkbox a `checked` className', function() {
-  expect(2);
+  expect(4);
 
   var component = this.subject({
     groupValue: 'initial-group-value',
     value: 'component-value',
+    class: 'blue-radio',
     template: function() { return 'Blue'; }
   });
   this.append();
@@ -109,7 +110,9 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
     component.set('value', 'initial-group-value');
   });
 
-  equal(component.$().hasClass('checked'), true);
+  equal(component.$().hasClass('checked'), true, 'has class `checked`');
+  equal(component.$().hasClass('ember-radio-button'), true, 'has class `ember-radio-button`');
+  equal(component.$().hasClass('blue-radio'), true, 'has class `blue-radio`');
 });
 
 test('it updates when setting `value`', function() {

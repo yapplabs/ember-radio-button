@@ -13,7 +13,7 @@ export default Ember.Component.extend({
   tagName: 'input',
   type: 'radio',
   value: null,
-  defaultLayout: null,
+  defaultLayout: null, // ie8 support
 
   attributeBindings: boundAttributeKeys
 });

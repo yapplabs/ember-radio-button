@@ -55,7 +55,13 @@ You can additionally provide `disabled` `name` and `required` properties to a `r
 
 ## Installing
 
-`ember install:addon ember-radio-button`
+ember-cli 0.2.3+
+
+`ember install ember-radio-button`
+
+older ember-cli versions
+
+`ember install:npm ember-radio-button`
 
 ## Collaborating on this repo
 

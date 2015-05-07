@@ -39,3 +39,19 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
 
   equal(component.$().hasClass('checked'), true);
 });
+
+test('it gives the label of a wrapped checkbox a `disabled` className', function() {
+  expect(2);
+
+  var component = this.subject({
+    template: function() { return 'Blue'; }
+  });
+  this.append();
+  equal(component.$().hasClass('disabled'), false);
+
+  run(function() {
+    component.set('disabled', true);
+  });
+
+  equal(component.$().hasClass('disabled'), true);
+});

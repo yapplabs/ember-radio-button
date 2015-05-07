@@ -27,7 +27,6 @@ export default RadioButtonBase.extend({
       );
       this.set('attributeBindings', updatedAttrs);
       this.get('classNameBindings').pushObject('checked');
-      this.get('classNameBindings').pushObject('disabled');
       this.get('classNames').pushObject('ember-radio-button');
     }
   }),

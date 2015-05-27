@@ -22,7 +22,7 @@ export default RadioButtonBase.extend({
 
       // don't bind name, type, etc to the label
       var originalAttrs = this.get('attributeBindings');
-      var updatedAttrs = Ember.copy(originalAttrs).removeObjects(
+      var updatedAttrs = Ember.A(Ember.copy(originalAttrs)).removeObjects(
         boundAttributeKeys
       );
       this.set('attributeBindings', updatedAttrs);

@@ -1,5 +1,7 @@
 ---
 language: node_js
+node_js:
+  - "0.12"
 
 sudo: false
 
@@ -8,7 +10,8 @@ cache:
     - node_modules
 
 before_install:
-  - "npm install -g npm@^2.7.5"
+  - "npm config set spin false"
+  - "npm install -g npm@^2"
 
 install:
   - npm install -g bower

@@ -10,19 +10,19 @@ moduleForComponent('labeled-radio-button', 'LabeledRadioButtonComponent', {
   needs: ['component:radio-button']
 });
 
-test('it renders', function() {
-  expect(3);
+test('it renders', function(assert) {
+  assert.expect(3);
 
   var component = this.subject();
-  equal(component._state, 'preRender');
+  assert.equal(component._state, 'preRender');
 
   this.append();
-  equal(component._state, 'inDOM');
-  equal(component.$().hasClass('ember-radio-button'), true, 'has ember-radio-button class');
+  assert.equal(component._state, 'inDOM');
+  assert.equal(component.$().hasClass('ember-radio-button'), true, 'has ember-radio-button class');
 });
 
-test('it gives the label of a wrapped checkbox a `checked` className', function() {
-  expect(2);
+test('it gives the label of a wrapped checkbox a `checked` className', function(assert) {
+  assert.expect(2);
 
   var component = this.subject({
     groupValue: 'initial-group-value',
@@ -31,11 +31,11 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
   });
   this.append();
 
-  equal(component.$().hasClass('checked'), false);
+  assert.equal(component.$().hasClass('checked'), false);
 
   run(function() {
     component.set('value', 'initial-group-value');
   });
 
-  equal(component.$().hasClass('checked'), true);
+  assert.equal(component.$().hasClass('checked'), true);
 });

@@ -16,7 +16,7 @@ test('it renders', function(assert) {
   var component = this.subject();
   assert.equal(component._state, 'preRender');
 
-  this.append();
+  this.render();
   assert.equal(component._state, 'inDOM');
   assert.equal(component.$().hasClass('ember-radio-button'), true, 'has ember-radio-button class');
 });
@@ -29,7 +29,7 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
     value: 'component-value',
     template: function() { return 'Blue'; }
   });
-  this.append();
+  this.render();
 
   assert.equal(component.$().hasClass('checked'), false);
 

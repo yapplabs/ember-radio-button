@@ -16,7 +16,7 @@ test('it renders', function(assert) {
   var component = this.subject();
   assert.equal(component._state, 'preRender');
 
-  this.append();
+  this.render();
   assert.equal(component._state, 'inDOM');
 });
 
@@ -27,7 +27,7 @@ test('begins checked when groupValue matches value', function(assert) {
     groupValue: 'chosen-value',
     value: 'chosen-value'
   });
-  this.append();
+  this.render();
 
   assert.equal(component.$().prop('checked'), true);
 });
@@ -48,7 +48,7 @@ test('it updates when clicked, and triggers the `changed` action', function(asse
       }
     })
   });
-  this.append();
+  this.render();
 
   assert.equal(changedActionCallCount, 0);
   assert.equal(component.$().prop('checked'), false);
@@ -79,7 +79,7 @@ test('it updates when the browser change event is fired', function(assert) {
       }
     })
   });
-  this.append();
+  this.render();
 
   assert.equal(changedActionCallCount, 0);
   assert.equal(component.$().prop('checked'), false);
@@ -102,7 +102,7 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
     classNames: 'blue-radio',
     template: function() { return 'Blue'; }
   });
-  this.append();
+  this.render();
 
   assert.equal(component.$().hasClass('checked'), false);
 
@@ -122,7 +122,7 @@ test('it updates when setting `value`', function(assert) {
     groupValue: 'initial-group-value',
     value: 'component-value'
   });
-  this.append();
+  this.render();
 
   assert.equal(component.$().prop('checked'), false);
 
@@ -145,14 +145,14 @@ test('begins disabled when disabled is true', function(assert) {
   var component = this.subject({
     disabled: true
   });
-  this.append();
+  this.render();
 
   assert.ok(component.$().is(':disabled'));
 });
 
 test('updates disabled when the disabled attribute changes', function(assert) {
   var component = this.subject();
-  this.append();
+  this.render();
 
   assert.ok(component.$().is(':not(:disabled)'));
 
@@ -172,7 +172,7 @@ test('begins with the `required` and `name` attributes when specified', function
     required: true,
     name: 'colors'
   });
-  this.append();
+  this.render();
 
   assert.ok(component.$().attr('required'));
   assert.equal(component.$().attr('name'), 'colors');
@@ -180,7 +180,7 @@ test('begins with the `required` and `name` attributes when specified', function
 
 test('updates the `required` attribute when the property changes', function(assert) {
   var component = this.subject();
-  this.append();
+  this.render();
 
   assert.equal(component.$().attr('required'), null);
 
@@ -199,7 +199,7 @@ test('updates the `required` attribute when the property changes', function(asse
 
 test('updates the `name` attribute when the property changes', function(assert) {
   var component = this.subject();
-  this.append();
+  this.render();
 
   assert.equal(component.$().attr('name'), null);
 
@@ -215,7 +215,7 @@ test('uses a layout, tagName=label, when given a template', function(assert) {
     template: function() { return 'Red'; }
   });
 
-  this.append();
+  this.render();
   assert.ok(component.$().is('label'));
   assert.ok(component.$().is('label:contains(Red)'));
 
@@ -233,7 +233,7 @@ test('it binds attributes only to the input when used as a block', function(asse
     template: function() { return 'Blue'; }
   });
 
-  this.append();
+  this.render();
   var $label = component.$();
 
   assert.ok($label.is('label'));

@@ -3,238 +3,225 @@ import {
   moduleForComponent,
   test
 } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
 
 var run = Ember.run;
 
 moduleForComponent('radio-button', 'RadioButtonComponent', {
-  needs: ['template:components/labeled-radio-button']
-});
-
-test('it renders', function(assert) {
-  assert.expect(2);
-
-  var component = this.subject();
-  assert.equal(component._state, 'preRender');
-
-  this.render();
-  assert.equal(component._state, 'inDOM');
+  integration: true
 });
 
 test('begins checked when groupValue matches value', function(assert) {
   assert.expect(1);
 
-  var component = this.subject({
-    groupValue: 'chosen-value',
-    value: 'chosen-value'
-  });
-  this.render();
+  this.render(hbs`
+    {{radio-button
+        groupValue='chosen-value'
+        value='chosen-value'
+    }}
+  `);
 
-  assert.equal(component.$().prop('checked'), true);
+  assert.equal(this.$('input').prop('checked'), true);
 });
 
 test('it updates when clicked, and triggers the `changed` action', function(assert) {
-  assert.expect(6);
+  assert.expect(5);
 
   var changedActionCallCount = 0;
-  var component = this.subject({
-    groupValue: 'initial-group-value',
-    value: 'component-value',
-    changed: 'changed',
-    targetObject: Ember.Controller.createWithMixins({
-      actions: {
-        changed: function() {
-          changedActionCallCount++;
-        }
-      }
-    })
+  this.on('changed', function() {
+    changedActionCallCount++;
   });
-  this.render();
+
+  this.set('groupValue', 'initial-group-value');
+
+  this.render(hbs`
+    {{radio-button
+        groupValue=groupValue
+        value='component-value'
+        changed='changed'
+    }}
+  `);
 
   assert.equal(changedActionCallCount, 0);
-  assert.equal(component.$().prop('checked'), false);
+  assert.equal(this.$('input').prop('checked'), false);
 
-  run(function() {
-    component.$().trigger('click');
+  run(() => {
+    this.$('input').trigger('click');
   });
 
-  assert.equal(component.$().prop('checked'), true, 'updates element property');
-  assert.equal(component.get('checked'), true, 'updates component property');
-  assert.equal(component.get('groupValue'), 'component-value', 'updates groupValue');
+  assert.equal(this.$('input').prop('checked'), true, 'updates element property');
+  assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
 
   assert.equal(changedActionCallCount, 1);
 });
 
 test('it updates when the browser change event is fired', function(assert) {
   var changedActionCallCount = 0;
-
-  var component = this.subject({
-    groupValue: 'initial-group-value',
-    value: 'component-value',
-    changed: 'changed',
-    targetObject: Ember.Controller.createWithMixins({
-      actions: {
-        changed: function() {
-          changedActionCallCount++;
-        }
-      }
-    })
+  this.on('changed', () => {
+    changedActionCallCount++;
   });
-  this.render();
+
+  this.set('groupValue', 'initial-group-value');
+
+  this.render(hbs`
+    {{radio-button
+        groupValue=groupValue
+        value='component-value'
+        changed='changed'
+    }}
+  `);
 
   assert.equal(changedActionCallCount, 0);
-  assert.equal(component.$().prop('checked'), false);
+  assert.equal(this.$('input').prop('checked'), false);
 
-  run(function() {
-    component.$().prop('checked', true).trigger('change');
+  run(() => {
+    this.$('input').prop('checked', true).trigger('change');
   });
 
-  assert.equal(component.get('checked'), true, 'updates component property');
-  assert.equal(component.get('groupValue'), 'component-value', 'updates groupValue');
+  assert.equal(this.$('input').prop('checked'), true, 'updates DOM property');
+  assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
   assert.equal(changedActionCallCount, 1);
 });
 
 test('it gives the label of a wrapped checkbox a `checked` className', function(assert) {
   assert.expect(4);
 
-  var component = this.subject({
-    groupValue: 'initial-group-value',
-    value: 'component-value',
-    classNames: 'blue-radio',
-    template: function() { return 'Blue'; }
-  });
-  this.render();
+  this.set('groupValue', 'initial-group-value');
+  this.set('value', 'component-value');
 
-  assert.equal(component.$().hasClass('checked'), false);
+  this.render(hbs`
+    {{#radio-button
+        groupValue=groupValue
+        value=value
+        changed='changed'
+        classNames='blue-radio'
+    ~}}
+      Blue
+    {{~/radio-button}}
+  `);
 
-  run(function() {
-    component.set('value', 'initial-group-value');
-  });
+  assert.equal(this.$('label').hasClass('checked'), false);
 
-  assert.equal(component.$().hasClass('checked'), true, 'has class `checked`');
-  assert.equal(component.$().hasClass('ember-radio-button'), true, 'has class `ember-radio-button`');
-  assert.equal(component.$().hasClass('blue-radio'), true, 'has class `blue-radio`');
+  this.set('value', 'initial-group-value');
+
+  assert.equal(this.$('label').hasClass('checked'), true, 'has class `checked`');
+  assert.equal(this.$('label').hasClass('ember-radio-button'), true, 'has class `ember-radio-button`');
+  assert.equal(this.$('label').hasClass('blue-radio'), true, 'has class `blue-radio`');
 });
 
 test('it updates when setting `value`', function(assert) {
   assert.expect(3);
 
-  var component = this.subject({
-    groupValue: 'initial-group-value',
-    value: 'component-value'
-  });
-  this.render();
+  this.set('groupValue', 'initial-group-value');
+  this.set('value', 'component-value');
 
-  assert.equal(component.$().prop('checked'), false);
+  this.render(hbs`
+    {{radio-button
+        groupValue=groupValue
+        value=value
+    }}
+  `);
 
-  run(function() {
-    component.set('value', 'initial-group-value');
-  });
+  assert.equal(this.$('input').prop('checked'), false);
 
-  assert.equal(component.$().prop('checked'), true);
+  this.set('value', 'initial-group-value');
 
-  run(function() {
-    component.set('value', 'component-value');
-  });
+  assert.equal(this.$('input').prop('checked'), true);
 
-  assert.equal(component.$().prop('checked'), false);
+  this.set('value', 'component-value');
+
+  assert.equal(this.$('input').prop('checked'), false);
 });
 
 test('begins disabled when disabled is true', function(assert) {
   assert.expect(1);
 
-  var component = this.subject({
-    disabled: true
-  });
-  this.render();
+  this.render(hbs`{{radio-button disabled=true}}`);
 
-  assert.ok(component.$().is(':disabled'));
+  assert.ok(this.$('input').is(':disabled'));
 });
 
 test('updates disabled when the disabled attribute changes', function(assert) {
-  var component = this.subject();
-  this.render();
+  this.set('isDisabled', false);
 
-  assert.ok(component.$().is(':not(:disabled)'));
+  this.render(hbs`{{radio-button disabled=isDisabled}}`);
 
-  run(function() {
-    component.set('disabled', true);
+  assert.ok(this.$('input').is(':not(:disabled)'));
+
+  run(() => {
+    this.set('isDisabled', true);
   });
-  assert.ok(component.$().is(':disabled'));
+  assert.ok(this.$('input').is(':disabled'));
 
-  run(function() {
-    component.set('disabled', false);
+  run(() => {
+    this.set('isDisabled', false);
   });
-  assert.ok(component.$().is(':not(:disabled)'));
+
+  assert.ok(this.$('input').is(':not(:disabled)'));
 });
 
 test('begins with the `required` and `name` attributes when specified', function(assert) {
-  var component = this.subject({
-    required: true,
-    name: 'colors'
-  });
-  this.render();
+  this.render(hbs`{{radio-button required=true name='colors'}}`);
 
-  assert.ok(component.$().attr('required'));
-  assert.equal(component.$().attr('name'), 'colors');
+  assert.ok(this.$('input').attr('required'));
+  assert.equal(this.$('input').attr('name'), 'colors');
 });
 
 test('updates the `required` attribute when the property changes', function(assert) {
-  var component = this.subject();
-  this.render();
+  this.set('isRequired', false);
 
-  assert.equal(component.$().attr('required'), null);
+  this.render(hbs`{{radio-button required=isRequired}}`);
 
-  run(function() {
-    component.set('required', true);
-  });
+  assert.equal(this.$('input').attr('required'), null);
 
-  assert.ok(component.$().attr('required'));
+  this.set('isRequired', true);
 
-  run(function() {
-    component.set('required', false);
-  });
+  assert.ok(this.$('input').attr('required'));
 
-  assert.equal(component.$().attr('required'), null);
+  this.set('isRequired', false);
+
+  assert.equal(this.$('input').attr('required'), null);
 });
 
 test('updates the `name` attribute when the property changes', function(assert) {
-  var component = this.subject();
-  this.render();
+  this.set('name', undefined);
 
-  assert.equal(component.$().attr('name'), null);
+  this.render(hbs`{{radio-button name=name}}`);
 
-  run(function() {
-    component.set('name', 'colors');
-  });
+  assert.equal(this.$('input').attr('name'), null);
 
-  assert.ok(component.$().attr('name'), 'colors');
+  this.set('name', 'colors');
+
+  assert.ok(this.$('input').attr('name'), 'colors');
 });
 
 test('uses a layout, tagName=label, when given a template', function(assert) {
-  var component = this.subject({
-    template: function() { return 'Red'; }
-  });
+  this.render(hbs`{{#radio-button}}Red{{/radio-button}}`);
 
-  this.render();
-  assert.ok(component.$().is('label'));
-  assert.ok(component.$().is('label:contains(Red)'));
+  // grabbing the second childNode because the first is a text node
+  var $root = $(this.$()[0].childNodes[1]);
 
-  assert.equal(component.$('input[type=radio]').length, 1);
-  assert.equal(component.$().hasClass('ember-radio-button'), true, 'has ember-radio-button class');
+  assert.ok($root.is('label'));
+  assert.ok($root.is('label:contains(Red)'));
+
+  assert.equal(this.$('input[type=radio]').length, 1);
+  assert.equal($root.hasClass('ember-radio-button'), true, 'has ember-radio-button class');
 });
 
 test('it binds attributes only to the input when used as a block', function(assert) {
-  var component = this.subject({
-    disabled: true,
-    name: 'some-name',
-    required: true,
-    value: 'blue',
-    groupValue: 'blue',
-    template: function() { return 'Blue'; }
-  });
+  this.render(hbs`
+    {{#radio-button
+      disabled=true
+      name='some-name'
+      required=true
+      value='blue'
+      groupValue='blue'
+    ~}}
+      Blue
+    {{~/radio-button}}
+  `);
 
-  this.render();
-  var $label = component.$();
+  var $label = this.$('label');
 
   assert.ok($label.is('label'));
   assert.equal($label.attr('checked'), undefined);
@@ -244,7 +231,7 @@ test('it binds attributes only to the input when used as a block', function(asse
   assert.equal($label.attr('type'), undefined);
   assert.equal($label.attr('value'), undefined);
 
-  var $input = component.$('input[type=radio]');
+  var $input = $label.find('input[type=radio]');
   assert.equal($input.length, 1);
   assert.equal($input.prop('checked'), true);
   assert.equal($input.prop('disabled'), true);

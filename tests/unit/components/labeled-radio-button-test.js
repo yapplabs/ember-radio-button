@@ -3,39 +3,38 @@ import {
   moduleForComponent,
   test
 } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
 
 var run = Ember.run;
 
 moduleForComponent('labeled-radio-button', 'LabeledRadioButtonComponent', {
-  needs: ['component:radio-button']
+  integration: true
 });
 
 test('it renders', function(assert) {
-  assert.expect(3);
+  assert.expect(1);
 
-  var component = this.subject();
-  assert.equal(component._state, 'preRender');
-
-  this.render();
-  assert.equal(component._state, 'inDOM');
-  assert.equal(component.$().hasClass('ember-radio-button'), true, 'has ember-radio-button class');
+  this.render(hbs`{{labeled-radio-button}}`);
+  assert.equal(this.$('label').hasClass('ember-radio-button'), true, 'has ember-radio-button class');
 });
 
 test('it gives the label of a wrapped checkbox a `checked` className', function(assert) {
   assert.expect(2);
 
-  var component = this.subject({
-    groupValue: 'initial-group-value',
-    value: 'component-value',
-    template: function() { return 'Blue'; }
-  });
-  this.render();
+  this.set('value', 'component-value');
 
-  assert.equal(component.$().hasClass('checked'), false);
+  this.render(hbs`
+    {{#radio-button
+      groupValue='initial-group-value'
+      value=value
+    }}
+      Blue
+    {{/radio-button}}
+  `);
 
-  run(function() {
-    component.set('value', 'initial-group-value');
-  });
+  assert.equal(this.$('label').hasClass('checked'), false);
 
-  assert.equal(component.$().hasClass('checked'), true);
+  this.set('value', 'initial-group-value');
+
+  assert.equal(this.$('label').hasClass('checked'), true);
 });

@@ -198,8 +198,9 @@ test('updates the `name` attribute when the property changes', function(assert) 
 test('uses a layout, tagName=label, when given a template', function(assert) {
   this.render(hbs`{{#radio-button}}Red{{/radio-button}}`);
 
-  // grabbing the second childNode because the first is a text node
-  var $root = $(this.$()[0].childNodes[1]);
+  // skip text nodes, take the first element childNode
+  var root = Ember.A(this.$()[0].childNodes).find(function(elt) { return elt.tagName; });
+  var $root = $(root);
 
   assert.ok($root.is('label'));
   assert.ok($root.is('label:contains(Red)'));

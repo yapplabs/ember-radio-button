@@ -11,9 +11,10 @@ var on = Ember.on;
 export default RadioButtonBase.extend({
   value: null,
   groupValue: null,
+  hasBlock: computed.bool('template').readOnly(),
 
   wrapInLabelIfUsedAsBlock: on('init', function() {
-    if (this.get('template')) {
+    if (this.get('hasBlock')) {
       this.set('tagName', 'label');
       this.set('layoutName', 'components/labeled-radio-button');
 

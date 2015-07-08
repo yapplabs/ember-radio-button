@@ -4,7 +4,7 @@ var computed = Ember.computed;
 
 export default Ember.Component.extend({
   tagName: 'label',
-  classNameBindings: ['checked'],
+  classNameBindings: ['checked', 'disabled'],
   classNames: ['ember-radio-button'],
   defaultLayout: null, // ie8 support
 

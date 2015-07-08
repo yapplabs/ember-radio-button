@@ -3,10 +3,6 @@
 **Note**: **ember-radio-button 1.0.0 requires using htmlbars**.  For applications not using htmlbars, use version 0.1.3 or the `pre-htmlbars`
  branch
 
-**Ember 1.13 Note**: The block form of radio-button (`{{#radio-button}} ... {{/radio-button}}`) is not 
-currently compatible with the ember 1.13 betas.  You can use 
-`{{#labeled-radio-button}} ... {{/labeled-radio-button}}` for ember 1.13 compatibility.  Follow [this issue](https://github.com/yapplabs/ember-radio-button/issues/15) for updates
-
 This ember-cli addon provides a `radio-button` component.
 
 Pass two properties to the component: `value` and `groupValue`.  A `radio-button`

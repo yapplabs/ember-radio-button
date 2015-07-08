@@ -12,6 +12,8 @@ export default Ember.Component.extend({
   // disabled - optional
   // name - optional
   // required - optional
+  // radioClass - string
+  // radioId - string
 
   defaultLayout: null, // ie8 support
 

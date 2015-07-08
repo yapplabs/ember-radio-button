@@ -1,6 +1,8 @@
 {{#if hasBlock}}
-  <label class="ember-radio-button {{if checked 'checked'}} {{joinedClassNames}}">
+  <label class="ember-radio-button {{if checked 'checked'}} {{joinedClassNames}}" for={{radioId}}>
     {{radio-button-input
+        class=radioClass
+        id=radioId
         disabled=disabled
         name=name
         required=required
@@ -12,6 +14,8 @@
   </label>
 {{else}}
   {{radio-button-input
+      class=radioClass
+      id=radioId
       disabled=disabled
       name=name
       required=required

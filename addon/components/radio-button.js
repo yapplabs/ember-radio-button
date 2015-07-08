@@ -11,6 +11,8 @@ export default Ember.Component.extend({
   // disabled - boolean
   // required - boolean
   // name - string
+  // radioClass - string
+  // radioId - string
 
   // polyfill hasBlock for ember versions < 1.13
   hasBlock: computed.bool('template').readOnly(),

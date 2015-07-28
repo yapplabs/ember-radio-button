@@ -1,3 +1,9 @@
+### 1.0.7
+
+ - adds a `radioClass` property to put any classes you want on the input element
+ - adds a `radioId` property to specify an id for the input element, allows
+   associating non-wrapping label elements
+
 ### 1.0.6
 
  - Use `hasBlock` internally and remove deprecation warnings from

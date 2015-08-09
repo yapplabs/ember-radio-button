@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var computed = Ember.computed;
+const { computed } = Ember;
 
 export default Ember.Component.extend({
   tagName: '',
@@ -18,7 +18,7 @@ export default Ember.Component.extend({
   hasBlock: computed.bool('template').readOnly(),
 
   joinedClassNames: computed('classNames', function() {
-    var classNames = this.get('classNames');
+    let classNames = this.get('classNames');
     if (classNames && classNames.length && classNames.join) {
       return classNames.join(' ');
     }

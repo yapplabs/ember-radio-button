@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var computed = Ember.computed;
+const { computed } = Ember;
 
 export default Ember.Component.extend({
   tagName: 'input',
@@ -34,11 +34,11 @@ export default Ember.Component.extend({
     this.sendAction('changed', this.get('value'));
   },
 
-  change: function() {
-    var value = this.get('value');
-    var groupValue = this.get('groupValue');
+  change() {
+    let value = this.get('value');
+    let groupValue = this.get('groupValue');
 
-    if (groupValue !== value){
+    if (groupValue !== value) {
       this.set('groupValue', value); // violates DDAU
       Ember.run.once(this, 'sendChangedAction');
     }

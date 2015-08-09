@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var computed = Ember.computed;
+const { computed } = Ember;
 
 export default Ember.Component.extend({
   tagName: 'label',
@@ -16,7 +16,7 @@ export default Ember.Component.extend({
   'for': computed.readOnly('radioId'),
 
   actions: {
-    innerRadioChanged: function(value) {
+    innerRadioChanged(value) {
       this.sendAction('changed', value);
     }
   }

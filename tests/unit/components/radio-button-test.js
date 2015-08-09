@@ -5,7 +5,7 @@ import {
 } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-var run = Ember.run;
+const { run } = Ember;
 
 moduleForComponent('radio-button', 'RadioButtonComponent', {
   integration: true
@@ -27,7 +27,7 @@ test('begins checked when groupValue matches value', function(assert) {
 test('it updates when clicked, and triggers the `changed` action', function(assert) {
   assert.expect(5);
 
-  var changedActionCallCount = 0;
+  let changedActionCallCount = 0;
   this.on('changed', function() {
     changedActionCallCount++;
   });
@@ -56,7 +56,7 @@ test('it updates when clicked, and triggers the `changed` action', function(asse
 });
 
 test('it updates when the browser change event is fired', function(assert) {
-  var changedActionCallCount = 0;
+  let changedActionCallCount = 0;
   this.on('changed', () => {
     changedActionCallCount++;
   });
@@ -199,8 +199,11 @@ test('uses a layout, tagName=label, when given a template', function(assert) {
   this.render(hbs`{{#radio-button}}Red{{/radio-button}}`);
 
   // skip text nodes, take the first element childNode
-  var root = Ember.A(this.$()[0].childNodes).find(function(elt) { return elt.tagName; });
-  var $root = $(root);
+  let root = Ember.A(this.$()[0].childNodes).find(function(elt) {
+    return elt.tagName;
+  });
+
+  let $root = $(root);
 
   assert.ok($root.is('label'));
   assert.ok($root.is('label:contains(Red)'));
@@ -222,7 +225,7 @@ test('it binds attributes only to the input when used as a block', function(asse
     {{~/radio-button}}
   `);
 
-  var $label = this.$('label');
+  let $label = this.$('label');
 
   assert.ok($label.is('label'));
   assert.equal($label.attr('checked'), undefined);
@@ -232,7 +235,7 @@ test('it binds attributes only to the input when used as a block', function(asse
   assert.equal($label.attr('type'), undefined);
   assert.equal($label.attr('value'), undefined);
 
-  var $input = $label.find('input[type=radio]');
+  let $input = $label.find('input[type=radio]');
   assert.equal($input.length, 1);
   assert.equal($input.prop('checked'), true);
   assert.equal($input.prop('disabled'), true);

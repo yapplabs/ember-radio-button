@@ -5,7 +5,7 @@ import {
 } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-var run = Ember.run;
+const { run } = Ember;
 
 moduleForComponent('labeled-radio-button', 'LabeledRadioButtonComponent', {
   integration: true

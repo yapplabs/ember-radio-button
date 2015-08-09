@@ -5,8 +5,8 @@ export default Ember.Controller.extend({
   numbersDisabled: true,
   noDefault: '',
   actions: {
-    colorChanged: function(color) {
-      window.alert('Color changed to ' + color);
+    colorChanged(color) {
+      window.alert(`Color changed to ${color}`);
     }
   },
   reservation: Ember.Object.create({

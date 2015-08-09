@@ -5,11 +5,11 @@ export default Ember.Controller.extend({
   numbersDisabled: true,
   noDefault: '',
   actions: {
-    colorChanged: function(color){
+    colorChanged: function(color) {
       window.alert('Color changed to ' + color);
     }
   },
   reservation: Ember.Object.create({
     number: 'one'
-  }),
+  })
 });

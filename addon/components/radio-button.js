@@ -28,7 +28,7 @@ export default Ember.Component.extend({
   // is this needed here or just on radio-button-input?
   defaultLayout: null, // ie8 support
 
-  checked: computed('groupValue', 'value', function(){
+  checked: computed('groupValue', 'value', function() {
     return this.get('groupValue') === this.get('value');
   }).readOnly(),
 

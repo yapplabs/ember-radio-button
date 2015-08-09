@@ -26,7 +26,7 @@ export default Ember.Component.extend({
     'value'
   ],
 
-  checked: computed('groupValue', 'value', function(){
+  checked: computed('groupValue', 'value', function() {
     return this.get('groupValue') === this.get('value');
   }).readOnly(),
 

@@ -1,0 +1,8 @@
+{
+  "disallowVar": null,
+  "requireBlocksOnNewline": null,
+  "requireEnhancedObjectLiterals": null,
+  "requireObjectDestructuring": null,
+  "requireSpaceBeforeBlockStatements": null,
+  "requireTemplateStringsForConcatenation": null
+}

@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   classNames: ['ember-radio-button'],
   defaultLayout: null, // ie8 support
 
-  checked: computed('groupValue', 'value', function(){
+  checked: computed('groupValue', 'value', function() {
     return this.get('groupValue') === this.get('value');
   }).readOnly(),
 

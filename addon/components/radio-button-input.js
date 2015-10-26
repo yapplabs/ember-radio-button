@@ -49,10 +49,10 @@ export default Ember.Component.extend({
       this.sendAction('focus-in');
     });
   },
-  
+
   focusOut() {
     Ember.run.once(this, () => {
       this.sendAction('focus-out');
     });
-  },
+  }
 });

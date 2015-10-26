@@ -18,6 +18,12 @@ export default Ember.Component.extend({
   actions: {
     innerRadioChanged(value) {
       this.sendAction('changed', value);
+    },
+    innerRadioFocusIn() {
+      this.sendAction('focus-in');
+    },
+    innerRadioFocusOut() {
+      this.sendAction('focus-out');
     }
   }
 });

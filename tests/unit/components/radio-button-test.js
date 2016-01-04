@@ -199,11 +199,16 @@ test('uses a layout, tagName=label, when given a template', function(assert) {
   this.render(hbs`{{#radio-button}}Red{{/radio-button}}`);
 
   // skip text nodes, take the first element childNode
-  let root = Ember.A(this.$()[0].childNodes).find(function(elt) {
-    return elt.tagName;
-  });
+  let idx = 0;
+  let nodes = this.$()[0].childNodes;
+  while (idx < nodes.length) {
+    if (!!nodes[idx].tagName) {
+      break;
+    }
+    idx++;
+  }
 
-  let $root = $(root);
+  let $root = $(nodes[idx]);
 
   assert.ok($root.is('label'));
   assert.ok($root.is('label:contains(Red)'));

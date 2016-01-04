@@ -1,3 +1,4 @@
+/*jshint node:true*/
 module.exports = {
   scenarios: [
     {
@@ -5,13 +6,14 @@ module.exports = {
       dependencies: { }
     },
     {
-      name: 'ember-1.11',
+      name: 'ember-1.11.3',
       dependencies: {
-        'ember': '1.11.3'
+        'ember': '1.11.3',
+        'ember-load-initializers': 'ember-cli/ember-load-initializers#0.0.2'
       }
     },
     {
-      name: 'ember-1.12',
+      name: 'ember-1.12.1',
       dependencies: {
         'ember': '1.12.1'
       }

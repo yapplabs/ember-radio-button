@@ -24,7 +24,7 @@ test('begins checked when groupValue matches value', function(assert) {
   assert.equal(this.$('input').prop('checked'), true);
 });
 
-test('it updates when clicked, and triggers the `changed` action', function(assert) {
+test('it triggers the `changed` action when clicked', function(assert) {
   assert.expect(5);
 
   let changedActionCallCount = 0;
@@ -50,12 +50,12 @@ test('it updates when clicked, and triggers the `changed` action', function(asse
   });
 
   assert.equal(this.$('input').prop('checked'), true, 'updates element property');
-  assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
+  assert.equal(this.get('groupValue'), 'initial-group-value', 'does not update groupValue');
 
   assert.equal(changedActionCallCount, 1);
 });
 
-test('it updates when the browser change event is fired', function(assert) {
+test('it triggers the `changed` action when the browser change event is fired', function(assert) {
   let changedActionCallCount = 0;
   this.on('changed', () => {
     changedActionCallCount++;
@@ -79,7 +79,7 @@ test('it updates when the browser change event is fired', function(assert) {
   });
 
   assert.equal(this.$('input').prop('checked'), true, 'updates DOM property');
-  assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
+  assert.equal(this.get('groupValue'), 'initial-group-value', 'does not update groupValue');
   assert.equal(changedActionCallCount, 1);
 });
 

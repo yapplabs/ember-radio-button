@@ -53,6 +53,26 @@ You can additionally provide `disabled` `name` and `required` properties to a `r
 <input id="ember345" class="ember-view" type="radio" value="green" name="color" required disabled>
 ```
 
+The `radioId` and `radioClass` properties allow specifying the id and adding classnames to the input tag.  When radioId is specified, the label tag's `for` attribute will also use it.
+
+```javascript
+{{#radio-button
+    radioId="purple-radio"
+    radioClass="my-custom-class"
+    value="purple"
+    groupValue=color
+    changed="colorChanged"}}
+    Purple
+{{/radio-button}}
+```
+
+```html
+<label id="ember346" for="purple-radio" class="ember-view ember-radio-button">
+  <input id="purple-radio" class="ember-view my-custom-class" type="radio" value="purple">
+  Purple
+</label>
+```
+
 ## Installing
 
 ember-cli 0.2.3+

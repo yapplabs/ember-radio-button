@@ -39,7 +39,6 @@ export default Ember.Component.extend({
     let groupValue = this.get('groupValue');
 
     if (groupValue !== value) {
-      this.set('groupValue', value); // violates DDAU
       Ember.run.once(this, 'sendChangedAction');
     }
   }

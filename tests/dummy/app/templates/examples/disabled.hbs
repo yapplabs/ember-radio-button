@@ -1,20 +1,20 @@
 <h3>Disabled flag</h3>
 <p style="background-color: #F7F7F7;padding: 15px 20px;">
   <code>
-    \{{#radio-button value=true groupValue=numbersDisabled}}<br>
+    \{{#radio-button value=true groupValue=numbersDisabled name="number-disabled" changed="numbersDisabledChanged"}}<br>
       &nbsp;&nbsp;Disabled<br>
     \{{/radio-button}}<br>
-    \{{#radio-button value=false groupValue=numbersDisabled}}<br>
+    \{{#radio-button value=false groupValue=numbersDisabled name="number-disabled" changed="numbersDisabledChanged"}}<br>
       &nbsp;&nbsp;Enabled<br>
     \{{/radio-button}}<br>
 
-    \{{#radio-button value="one" groupValue=number disabled=numbersDisabled}}<br>
+    \{{#radio-button value="one" groupValue=number disabled=numbersDisabled name="number" changed="numberChanged"}}<br>
       &nbsp;&nbsp;One<br>
     \{{/radio-button}}<br>
-    \{{#radio-button value="two" groupValue=number disabled=numbersDisabled}}<br>
+    \{{#radio-button value="two" groupValue=number disabled=numbersDisabled name="number" changed="numberChanged"}}<br>
       &nbsp;&nbsp;Two<br>
     \{{/radio-button}}<br>
-    \{{#radio-button value="three" groupValue=number disabled=numbersDisabled}}<br>
+    \{{#radio-button value="three" groupValue=number disabled=numbersDisabled name="number" changed="numberChanged"}}<br>
       &nbsp;&nbsp;Three<br>
     \{{/radio-button}}<br>
   </code>
@@ -22,21 +22,21 @@
 <strong>Numbers Disabled:</strong> {{numbersDisabled}}
 <strong>Number:</strong> {{number}}
 <p>
-  {{#radio-button value=true groupValue=numbersDisabled}}
+  {{#radio-button value=true groupValue=numbersDisabled name="number-disabled" changed="numbersDisabledChanged"}}
     Disabled
   {{/radio-button}}
-  {{#radio-button value=false groupValue=numbersDisabled}}
+  {{#radio-button value=false groupValue=numbersDisabled name="number-disabled" changed="numbersDisabledChanged"}}
     Enabled
   {{/radio-button}}
 </p>
 <p>
-  {{#radio-button value="one" groupValue=number disabled=numbersDisabled}}
+  {{#radio-button value="one" groupValue=number disabled=numbersDisabled name="number" changed="numberChanged"}}
     One
   {{/radio-button}}
-  {{#radio-button value="two" groupValue=number disabled=numbersDisabled}}
+  {{#radio-button value="two" groupValue=number disabled=numbersDisabled name="number" changed="numberChanged"}}
     Two
   {{/radio-button}}
-  {{#radio-button value="three" groupValue=number disabled=numbersDisabled}}
+  {{#radio-button value="three" groupValue=number disabled=numbersDisabled name="number" changed="numberChanged"}}
     Three
   {{/radio-button}}
 </p>

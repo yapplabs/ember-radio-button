@@ -6,7 +6,19 @@ export default Ember.Controller.extend({
   noDefault: '',
   actions: {
     colorChanged(color) {
-      window.alert(`Color changed to ${color}`);
+      this.set('color', color);
+    },
+    numbersDisabledChanged(numbersDisabled) {
+      this.set('numbersDisabled', numbersDisabled);
+    },
+    numberChanged(number) {
+      this.set('number', number);
+    },
+    noDefaultChanged(noDefault) {
+      this.set('noDefault', noDefault);
+    },
+    modelNumberChanged(modelNumber) {
+      this.set('reservation.number', modelNumber);
     }
   },
   reservation: Ember.Object.create({

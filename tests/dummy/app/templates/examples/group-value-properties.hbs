@@ -2,13 +2,13 @@
 
 <p style="background-color: #F7F7F7;padding: 15px 20px;">
   <code>
-    \{{#radio-button value="one" groupValue=reservation.number}}<br>
+    \{{#radio-button value="one" groupValue=reservation.number name="model-number" changed="modelNumberChanged"}}<br>
       &nbsp;&nbsp;One<br>
     \{{/radio-button}}<br>
-    \{{#radio-button value="two" groupValue=reservation.number}}<br>
+    \{{#radio-button value="two" groupValue=reservation.number name="model-number" changed="modelNumberChanged"}}<br>
       &nbsp;&nbsp;Two<br>
     \{{/radio-button}}<br>
-    \{{#radio-button value="three" groupValue=reservation.number}}<br>
+    \{{#radio-button value="three" groupValue=reservation.number name="model-number" changed="modelNumberChanged"}}<br>
       &nbsp;&nbsp;Three<br>
     \{{/radio-button}}<br>
   </code>
@@ -17,13 +17,13 @@
   Model.number: {{reservation.number}}
 </div>
 <div>
-  {{#radio-button value="one" groupValue=reservation.number}}
+  {{#radio-button value="one" groupValue=reservation.number name="model-number" changed="modelNumberChanged"}}
     One
   {{/radio-button}}
-  {{#radio-button value="two" groupValue=reservation.number}}
+  {{#radio-button value="two" groupValue=reservation.number name="model-number" changed="modelNumberChanged"}}
     Two
   {{/radio-button}}
-  {{#radio-button value="three" groupValue=reservation.number}}
+  {{#radio-button value="three" groupValue=reservation.number name="model-number" changed="modelNumberChanged"}}
     Three
   {{/radio-button}}
 </div>

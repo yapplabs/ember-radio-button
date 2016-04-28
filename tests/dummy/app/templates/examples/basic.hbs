@@ -1,10 +1,18 @@
 <p style="background-color: #F7F7F7;padding: 15px 20px;">
   <code>
+    \{{!-- Passing Value by key: --}}<br><br>
     \{{#radio-button value="green" groupValue=color changed="colorChanged"}}<br>
       &nbsp;&nbsp;Green<br>
     \{{/radio-button}}<br>
     \{{#radio-button value="blue" groupValue=color changed="colorChanged"}}<br>
       &nbsp;&nbsp;Blue<br>
+    \{{/radio-button}}<br><br>
+    \{{!-- Passing Value as Positional Param: --}}<br><br>
+    \{{#radio-button "red" groupValue=color changed="colorChanged"}}<br>
+      &nbsp;&nbsp;Red<br>
+    \{{/radio-button}}<br>
+    \{{#radio-button "yellow" groupValue=color changed="colorChanged"}}<br>
+      &nbsp;&nbsp;Yellow<br>
     \{{/radio-button}}<br>
   </code>
 </p>
@@ -15,5 +23,11 @@
   {{/radio-button}}
   {{#radio-button value="blue" groupValue=color changed="colorChanged"}}
     Blue
+  {{/radio-button}}
+  {{#radio-button "red" groupValue=color changed="colorChanged"}}
+    Red
+  {{/radio-button}}
+  {{#radio-button "yellow" groupValue=color changed="colorChanged"}}
+    Yellow
   {{/radio-button}}
 </p>

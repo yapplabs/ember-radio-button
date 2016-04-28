@@ -24,6 +24,18 @@ test('begins checked when groupValue matches value', function(assert) {
   assert.equal(this.$('input').prop('checked'), true);
 });
 
+test('begins checked when groupValue matches value, using positional params', function(assert) {
+  assert.expect(1);
+
+  this.render(hbs`
+    {{radio-button 'chosen-value'
+        groupValue='chosen-value'
+    }}
+  `);
+
+  assert.equal(this.$('input').prop('checked'), true);
+});
+
 test('it updates when clicked, and triggers the `changed` action', function(assert) {
   assert.expect(5);
 
@@ -38,6 +50,36 @@ test('it updates when clicked, and triggers the `changed` action', function(asse
     {{radio-button
         groupValue=groupValue
         value='component-value'
+        changed='changed'
+    }}
+  `);
+
+  assert.equal(changedActionCallCount, 0);
+  assert.equal(this.$('input').prop('checked'), false);
+
+  run(() => {
+    this.$('input').trigger('click');
+  });
+
+  assert.equal(this.$('input').prop('checked'), true, 'updates element property');
+  assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
+
+  assert.equal(changedActionCallCount, 1);
+});
+
+test('it updates when clicked, and triggers the `changed` action, using positional params', function(assert) {
+  assert.expect(5);
+
+  let changedActionCallCount = 0;
+  this.on('changed', function() {
+    changedActionCallCount++;
+  });
+
+  this.set('groupValue', 'initial-group-value');
+
+  this.render(hbs`
+    {{radio-button 'component-value'
+        groupValue=groupValue
         changed='changed'
     }}
   `);

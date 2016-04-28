@@ -1,0 +1,11 @@
+<div>group val: {{groupValue}}</div>
+{{yield
+    (hash
+      radio-button=(
+        component 'radio-button'
+          groupValue=groupValue
+          required=required
+          disabled=disabled
+          radioClass=radioClass
+      )
+    )}}

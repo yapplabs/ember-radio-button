@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 const { computed } = Ember;
 
-export default Ember.Component.extend({
+let RadioButton = Ember.Component.extend({
   tagName: '',
   // value - passed in, required, the value for this radio button
   // groupValue - passed in, required, the currently selected value
@@ -39,3 +39,8 @@ export default Ember.Component.extend({
   }
 });
 
+RadioButton.reopenClass({
+  positionalParams: ['value']
+});
+
+export default RadioButton;

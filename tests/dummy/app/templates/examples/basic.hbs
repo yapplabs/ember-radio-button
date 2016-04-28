@@ -16,14 +16,13 @@
   {{#radio-button value="blue" groupValue=color changed="colorChanged"}}
     Blue
   {{/radio-button}}
+
+  {{#ember-radio-group color changed="colorChanged" as |group|}}
+    {{#group.radio-button "purple" }}
+      Purple
+    {{/group.radio-button}}
+    {{#group.radio-button "yellow"}}
+      Yellow
+    {{/group.radio-button}}
+  {{/ember-radio-group}}
 </p>
-
-
-{{#ember-radio-group groupValue=color as |group|}}
-  {{#group.radio-button value="red" changed="colorChanged"}}
-    Red
-  {{/group.radio-button}}
-  {{#group.radio-button value="orange" changed="colorChanged"}}
-    Orange
-  {{/group.radio-button}}
-{{/ember-radio-group}}

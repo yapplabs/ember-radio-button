@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   noDefault: '',
   actions: {
     colorChanged(color) {
-      window.alert(`Color changed to ${color}`);
+      this.set('color', color);
     }
   },
   reservation: Ember.Object.create({

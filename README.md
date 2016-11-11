@@ -73,6 +73,43 @@ The `radioId` and `radioClass` properties allow specifying the id and adding cla
 </label>
 ```
 
+For convenience, it's also possible to pass an array of options to the `radio-button-group` component which creates a group of options without having to define the options individually.
+
+```javascript
+{{radio-button-group title="Group of Radio Buttons" options=options groupValue=selection changed='changed'}}
+```
+
+`options` can be a POJO of the following format:
+
+```javascript
+  options: function() {
+    return [
+      { name: 'test 1', label: 'test label 1', value: 1 },
+      { name: 'test 2', label: 'test label 2', value: 2 },
+      { name: 'test 3', label: 'test label 3', value: 3 }
+    ];
+  }
+```
+
+```html
+<div id="ember883" class="ember-view ember-radio-button-group"><span>Group of Radio Buttons</span>
+  <label class="ember-radio-button  ember-view">
+    <input id="ember902" name="test 1" type="radio" value="1" class="ember-view">
+    test 1 label
+  </label>
+  <label class="ember-radio-button  ember-view">
+    <input id="ember905" name="test 2" type="radio" value="2" class="ember-view">
+    test 2 label
+  </label>
+  <label class="ember-radio-button  ember-view">
+    <input id="ember908" name="test 3" type="radio" value="3" class="ember-view">
+    test 3 label
+  </label>
+</div>
+```
+
+If `label` is missing from the element, `name` is used in its place to define some text for the button. `name` and `value` are the only required parameters.
+
 ## Installing
 
 ember-cli 0.2.3+

@@ -1,2 +1,1 @@
-import RadioButton from 'ember-radio-button/components/radio-button';
-export default RadioButton;
+export { default } from 'ember-radio-button/components/radio-button';

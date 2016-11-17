@@ -1,9 +1,11 @@
 import Ember from 'ember';
+import layout from '../templates/components/labeled-radio-button';
 
 const { computed } = Ember;
 
 export default Ember.Component.extend({
   tagName: 'label',
+  layout,
   attributeBindings: ['for'],
   classNameBindings: ['checked'],
   classNames: ['ember-radio-button'],

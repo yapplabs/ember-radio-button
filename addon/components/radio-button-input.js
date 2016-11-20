@@ -1,8 +1,12 @@
 import Ember from 'ember';
 
-const { computed } = Ember;
+const {
+  Component,
+  computed,
+  run
+} = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'input',
   type: 'radio',
 
@@ -40,7 +44,7 @@ export default Ember.Component.extend({
 
     if (groupValue !== value) {
       this.set('groupValue', value); // violates DDAU
-      Ember.run.once(this, 'sendChangedAction');
+      run.once(this, 'sendChangedAction');
     }
   }
 });

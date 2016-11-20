@@ -1,5 +1,11 @@
 import Ember from 'ember';
-export default Ember.Controller.extend({
+
+const {
+  Controller,
+  Object: EmberObject
+} = Ember;
+
+export default Controller.extend({
   color: 'green',
   number: 'one',
   numbersDisabled: true,
@@ -9,7 +15,7 @@ export default Ember.Controller.extend({
       window.alert(`Color changed to ${color}`);
     }
   },
-  reservation: Ember.Object.create({
+  reservation: EmberObject.create({
     number: 'one'
   })
 });

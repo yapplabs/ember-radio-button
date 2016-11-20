@@ -1,8 +1,11 @@
 import Ember from 'ember';
 
-const { computed } = Ember;
+const {
+  Component,
+  computed
+} = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'label',
   attributeBindings: ['for'],
   classNameBindings: ['checked'],

@@ -46,5 +46,17 @@ export default Component.extend({
       this.set('groupValue', value); // violates DDAU
       run.once(this, 'sendChangedAction');
     }
+  },
+
+  focusIn() {
+    Ember.run.once(this, () => {
+      this.sendAction('focus-in');
+    });
+  },
+
+  focusOut() {
+    Ember.run.once(this, () => {
+      this.sendAction('focus-out');
+    });
   }
 });

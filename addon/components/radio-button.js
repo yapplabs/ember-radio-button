@@ -38,6 +38,12 @@ export default Component.extend({
   actions: {
     changed(newValue) {
       this.sendAction('changed', newValue);
+    },
+    'focus-in'() {
+      this.sendAction('focus-in');
+    },
+    'focus-out'() {
+      this.sendAction('focus-out');
     }
   }
 });

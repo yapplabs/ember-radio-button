@@ -1,5 +1,5 @@
 {{#if hasBlock}}
-  <label class="ember-radio-button {{if checked 'checked'}} {{joinedClassNames}}" for={{radioId}}>
+  <label class="ember-radio-button {{if hasInnerSpan 'has-inner-span'}} {{if checked 'checked'}} {{joinedClassNames}}" for={{radioId}}>
     {{radio-button-input
         class=radioClass
         id=radioId
@@ -10,7 +10,13 @@
         value=value
         changed="changed"}}
 
-    {{yield}}
+    {{#if hasInnerSpan}}
+      <span class="inner-span">
+        {{yield}}
+      </span>
+    {{else}}
+      {{yield}}
+    {{/if}}
   </label>
 {{else}}
   {{radio-button-input

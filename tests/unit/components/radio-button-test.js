@@ -274,3 +274,20 @@ test('it checks the input when the label is clicked and has a `for` attribute', 
   assert.equal(this.$('input').hasClass('my-radio-class'), true, 'the input has the right class');
   assert.equal(this.$('input:checked').length, 1, 'clicking the label checks the radio');
 });
+
+test('it applies `has-inner-span` and `inner-span` classes when `hasInnerSpan` is true', function(assert) {
+  assert.expect(2);
+
+  this.render(hbs`
+    {{#radio-button
+        groupValue='chosen-value'
+        value='chosen-value'
+        hasInnerSpan=true
+    }}
+    Label
+    {{/radio-button}}
+  `);
+
+  assert.equal(this.$('label').hasClass('has-inner-span'), true, 'the label has been given the `has-inner-span` class');
+  assert.equal(this.$('span').hasClass('inner-span'), true, 'the span has been inserted with `inner-span` class');
+});

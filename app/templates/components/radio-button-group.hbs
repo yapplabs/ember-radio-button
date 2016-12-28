@@ -1,0 +1,15 @@
+<span>{{title}}</span>
+{{#each options as |option|}}
+  {{#radio-button
+      class=radioClass
+      name=option.name
+      value=option.value
+      groupValue=groupValue
+      changed="changed"}}
+      {{#if option.label}}
+        {{option.label}}
+      {{else}}
+        {{option.name}}
+      {{/if}}
+  {{/radio-button}}
+{{/each}}

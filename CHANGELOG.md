@@ -1,4 +1,4 @@
-### 1.1.0
+### 1.1.1
  - adds support for engines
  - Potential Breaking Change: The addon now uses templates from the addon folder.
    If you were supplying your own templates at the previous location

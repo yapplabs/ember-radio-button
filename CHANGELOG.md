@@ -1,3 +1,11 @@
+### 1.1.0
+ - adds support for engines
+ - Potential Breaking Change: The addon now uses templates from the addon folder.
+   If you were supplying your own templates at the previous location
+   (`app/templates/components/radio-button.hbs` for example)
+   You will need to instead extend the provided component and explicitly
+   supply your own template.
+
 ### 1.0.7
 
  - adds a `radioClass` property to put any classes you want on the input element

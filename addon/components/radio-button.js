@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import layout from '../templates/components/radio-button';
 
 const {
   Component,
@@ -7,6 +8,8 @@ const {
 
 export default Component.extend({
   tagName: '',
+  layout,
+
   // value - passed in, required, the value for this radio button
   // groupValue - passed in, required, the currently selected value
 
@@ -41,4 +44,3 @@ export default Component.extend({
     }
   }
 });
-

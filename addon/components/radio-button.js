@@ -35,7 +35,7 @@ export default Component.extend({
   defaultLayout: null, // ie8 support
 
   checked: computed('groupValue', 'value', function() {
-    return this.get('groupValue') === this.get('value');
+    return Ember.isEqual(this.get('groupValue'), this.get('value'));
   }).readOnly(),
 
   actions: {

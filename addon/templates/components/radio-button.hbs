@@ -10,7 +10,7 @@
         value=value
         changed="changed"}}
 
-    {{yield checked}}
+    {{yield (hash checked=checked)}}
   </label>
 {{else}}
   {{radio-button-input

@@ -5,7 +5,10 @@ import {
 } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-const { run } = Ember;
+const {
+  $,
+  run
+} = Ember;
 
 moduleForComponent('radio-button', 'RadioButtonComponent', {
   integration: true
@@ -202,7 +205,7 @@ test('uses a layout, tagName=label, when given a template', function(assert) {
   let idx = 0;
   let nodes = this.$()[0].childNodes;
   while (idx < nodes.length) {
-    if (!!nodes[idx].tagName) {
+    if (nodes[idx].tagName) {
       break;
     }
     idx++;

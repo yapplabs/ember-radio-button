@@ -12,7 +12,7 @@ export default function startApp(attrs) {
   let attributes = merge({}, config.APP);
   attributes = merge(attributes, attrs); // use defaults, but you can override;
 
-  run(() => {
+  return run(() => {
     let application;
     application = Application.create(attributes);
     application.setupForTesting();

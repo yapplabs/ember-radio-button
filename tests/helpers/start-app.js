@@ -8,16 +8,15 @@ const {
 } = Ember;
 
 export default function startApp(attrs) {
-  let application;
 
   let attributes = merge({}, config.APP);
   attributes = merge(attributes, attrs); // use defaults, but you can override;
 
   run(() => {
+    let application;
     application = Application.create(attributes);
     application.setupForTesting();
     application.injectTestHelpers();
+    return application;
   });
-
-  return application;
 }

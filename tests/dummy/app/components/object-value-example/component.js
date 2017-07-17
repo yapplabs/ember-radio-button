@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-let {
+const {
   Component
 } = Ember;
 

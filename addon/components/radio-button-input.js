@@ -3,6 +3,7 @@ import Ember from 'ember';
 const {
   Component,
   computed,
+  isEqual,
   run
 } = Ember;
 
@@ -31,7 +32,7 @@ export default Component.extend({
   ],
 
   checked: computed('groupValue', 'value', function() {
-    return this.get('groupValue') === this.get('value');
+    return isEqual(this.get('groupValue'), this.get('value'));
   }).readOnly(),
 
   sendChangedAction() {

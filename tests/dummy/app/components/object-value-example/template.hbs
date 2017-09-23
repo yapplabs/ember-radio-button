@@ -1,0 +1,23 @@
+<h3>Using objects as radio button values</h3>
+<p style="background-color: #F7F7F7;padding: 15px 20px;">
+  <code>
+    greenObject: { name: 'green object' },<br>
+    blueObject: { name: 'blue object' },<br>
+    <br>
+    \{{#radio-button value=greenObject groupValue=selectedColorObject}}<br>
+    &nbsp;&nbsp;Green Object<br>
+    \{{/radio-button}}<br>
+    \{{#radio-button value=blueObject groupValue=selectedColorObject}}<br>
+    &nbsp;&nbsp;Blue Object<br>
+    \{{/radio-button}}<br>
+  </code>
+</p>
+<strong>selectedColorObject.name: </strong> {{selectedColorObject.name}}
+<p>
+  {{#radio-button value=greenObject groupValue=selectedColorObject}}
+    Green Object
+  {{/radio-button}}
+  {{#radio-button value=blueObject groupValue=selectedColorObject}}
+    Blue Object
+  {{/radio-button}}
+</p>

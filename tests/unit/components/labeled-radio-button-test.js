@@ -4,6 +4,7 @@ import {
   test
 } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import { alice, alice2, bob } from '../../helpers/person';
 
 const { run } = Ember;
 
@@ -24,12 +25,12 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
   this.set('value', 'component-value');
 
   this.render(hbs`
-    {{#radio-button
+    {{#labeled-radio-button
       groupValue='initial-group-value'
       value=value
     }}
       Blue
-    {{/radio-button}}
+    {{/labeled-radio-button}}
   `);
 
   assert.equal(this.$('label').hasClass('checked'), false);
@@ -63,4 +64,30 @@ test('it gives the label of a wrapped radio button a `for` attribute', function(
   assert.equal(this.$('input').attr('id'), 'green-0', 'the input has the correct `id` attribute');
   assert.equal(this.$('input').hasClass('my-radio-class'), true, 'the input has the right class');
   assert.equal(this.$('input:checked').length, 1, 'clicking the label checks the radio');
+});
+
+test('it updates when setting `value` with isEqual', function(assert) {
+  assert.expect(3);
+
+  this.set('groupValue', alice);
+  this.set('value', bob);
+
+  this.render(hbs`
+    {{#labeled-radio-button
+        groupValue=groupValue
+        value=value
+    }}
+      SSN matching Alice
+    {{/labeled-radio-button}}
+  `);
+
+  assert.equal(this.$('input').prop('checked'), false);
+
+  this.set('value', alice2);
+
+  assert.equal(this.$('input').prop('checked'), true);
+
+  this.set('value', bob);
+
+  assert.equal(this.$('input').prop('checked'), false);
 });

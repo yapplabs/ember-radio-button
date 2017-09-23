@@ -3,7 +3,8 @@ import layout from '../templates/components/labeled-radio-button';
 
 const {
   Component,
-  computed
+  computed,
+  isEqual
 } = Ember;
 
 export default Component.extend({
@@ -15,7 +16,7 @@ export default Component.extend({
   defaultLayout: null, // ie8 support
 
   checked: computed('groupValue', 'value', function() {
-    return this.get('groupValue') === this.get('value');
+    return isEqual(this.get('groupValue'), this.get('value'));
   }).readOnly(),
 
   'for': computed.readOnly('radioId'),

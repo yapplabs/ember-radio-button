@@ -4,6 +4,7 @@ import {
   test
 } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import { alice, alice2, bob } from '../../helpers/person';
 
 const {
   $,
@@ -276,4 +277,28 @@ test('it checks the input when the label is clicked and has a `for` attribute', 
   assert.equal(this.$('input').attr('id'), 'green-0', 'the input has the correct `id` attribute');
   assert.equal(this.$('input').hasClass('my-radio-class'), true, 'the input has the right class');
   assert.equal(this.$('input:checked').length, 1, 'clicking the label checks the radio');
+});
+
+test('it updates when setting `value` with isEqual', function(assert) {
+  assert.expect(3);
+
+  this.set('groupValue', alice);
+  this.set('value', bob);
+
+  this.render(hbs`
+    {{radio-button
+        groupValue=groupValue
+        value=value
+    }}
+  `);
+
+  assert.equal(this.$('input').prop('checked'), false);
+
+  this.set('value', alice2);
+
+  assert.equal(this.$('input').prop('checked'), true);
+
+  this.set('value', bob);
+
+  assert.equal(this.$('input').prop('checked'), false);
 });

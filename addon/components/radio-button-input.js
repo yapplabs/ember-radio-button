@@ -44,7 +44,6 @@ export default Component.extend({
     let groupValue = this.get('groupValue');
 
     if (groupValue !== value) {
-      this.set('groupValue', value); // violates DDAU
       run.once(this, 'sendChangedAction');
     }
   }

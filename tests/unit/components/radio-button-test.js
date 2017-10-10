@@ -29,11 +29,10 @@ test('begins checked when groupValue matches value', function(assert) {
 });
 
 test('it updates when clicked, and triggers the `changed` action', function(assert) {
-  assert.expect(5);
+  assert.expect(4);
 
-  let changedActionCallCount = 0;
-  this.on('changed', function() {
-    changedActionCallCount++;
+  this.on('changed', function(value) {
+    assert.equal(value, 'component-value', 'triggers change action with the correct value');
   });
 
   this.set('groupValue', 'initial-group-value');
@@ -46,23 +45,21 @@ test('it updates when clicked, and triggers the `changed` action', function(asse
     }}
   `);
 
-  assert.equal(changedActionCallCount, 0);
   assert.equal(this.$('input').prop('checked'), false);
 
   run(() => {
     this.$('input').trigger('click');
   });
 
-  assert.equal(this.$('input').prop('checked'), true, 'updates element property');
-  assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
-
-  assert.equal(changedActionCallCount, 1);
+  assert.equal(this.$('input').prop('checked'), true, 'does update element property');
+  assert.equal(this.get('groupValue'), 'initial-group-value', 'does not update groupValue');
 });
 
 test('it updates when the browser change event is fired', function(assert) {
-  let changedActionCallCount = 0;
-  this.on('changed', () => {
-    changedActionCallCount++;
+  assert.expect(4);
+
+  this.on('changed', (value) => {
+    assert.equal(value, 'component-value', 'triggers change action with the correct value');
   });
 
   this.set('groupValue', 'initial-group-value');
@@ -75,7 +72,6 @@ test('it updates when the browser change event is fired', function(assert) {
     }}
   `);
 
-  assert.equal(changedActionCallCount, 0);
   assert.equal(this.$('input').prop('checked'), false);
 
   run(() => {
@@ -83,8 +79,7 @@ test('it updates when the browser change event is fired', function(assert) {
   });
 
   assert.equal(this.$('input').prop('checked'), true, 'updates DOM property');
-  assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
-  assert.equal(changedActionCallCount, 1);
+  assert.equal(this.get('groupValue'), 'initial-group-value', 'does not update groupValue');
 });
 
 test('it gives the label of a wrapped checkbox a `checked` className', function(assert) {

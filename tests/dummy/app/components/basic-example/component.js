@@ -5,5 +5,10 @@ const {
 } = Ember;
 
 export default Component.extend({
-  color: 'green'
+  color: 'green',
+  actions: {
+    colorChanged(color) {
+      window.alert(`Color changed to ${color}`);
+    }
+  }
 });

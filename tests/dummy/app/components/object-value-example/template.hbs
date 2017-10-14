@@ -21,3 +21,34 @@
     Blue Object
   {{/radio-button}}
 </p>
+
+<h3>Chained group value properties</h3>
+
+<p style="background-color: #F7F7F7;padding: 15px 20px;">
+  <code>
+    \{{#radio-button value="one" groupValue=reservation.number}}<br>
+      &nbsp;&nbsp;One<br>
+    \{{/radio-button}}<br>
+    \{{#radio-button value="two" groupValue=reservation.number}}<br>
+      &nbsp;&nbsp;Two<br>
+    \{{/radio-button}}<br>
+    \{{#radio-button value="three" groupValue=reservation.number}}<br>
+      &nbsp;&nbsp;Three<br>
+    \{{/radio-button}}<br>
+  </code>
+</p>
+<div>
+  Model.number: {{reservation.number}}
+</div>
+<div>
+  {{#radio-button value="one" groupValue=reservation.number}}
+    One
+  {{/radio-button}}
+  {{#radio-button value="two" groupValue=reservation.number}}
+    Two
+  {{/radio-button}}
+  {{#radio-button value="three" groupValue=reservation.number}}
+    Three
+  {{/radio-button}}
+</div>
+

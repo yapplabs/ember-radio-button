@@ -1,0 +1,39 @@
+<h3>Tab Index</h3>
+<strong>Selected Color:</strong> {{color}}
+<br/>
+<strong>Selected Size:</strong> {{size}}
+<div>
+  <p>
+    <div>
+      Use the arrow keys to move between radio buttons with the same `name`.
+      The tab key moves between groups of radio buttons and other input elements.
+    </div>
+    <br/>
+    <a href="https://www.w3.org/wiki/RadioButton">See the w3 RadioButton wiki for details</a>
+  </p>
+  <input type=text tabindex="1" value="focus here to start" /> <br/>
+  <div style="padding: 0.5rem 0;">
+    Tab index 4:
+    <br/>
+    {{#radio-button name="group1" tabindex=4 value="red" groupValue=color}}
+      Red
+    {{/radio-button}}
+    <br/>
+    {{#radio-button name="group1" tabindex=4 value="blue" groupValue=color}}
+      Blue
+    {{/radio-button}}
+    <br/>
+    {{#radio-button name="group1" tabindex=4 value="green" groupValue=color}}
+      Green
+    {{/radio-button}}
+  </div>
+  <input type=text tabindex="3" value="tabindex 3" /> <br/>
+  <div style="padding: 0.5rem 0;">
+    Tab index 2:
+    <br/>
+    {{radio-button name="group2" tabindex=2 value="small" groupValue=size}} Small<br/>
+    {{radio-button name="group2" tabindex=2 value="medium" groupValue=size}} Medium<br />
+    {{radio-button name="group2" tabindex=2 value="large" groupValue=size}} Large<br/>
+  </div>
+  <input type=text tabindex="5" value="end here" /> <br/>
+</div>

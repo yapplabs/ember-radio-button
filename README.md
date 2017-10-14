@@ -38,13 +38,14 @@ when a user interaction causes one of your radio buttons to update `groupValue`.
 </label>
 ```
 
-You can additionally provide `disabled` `name` and `required` properties to a `radio-button`
+You can additionally provide `disabled` `name`, `tabindex` and `required` properties to a `radio-button`
 
 ```javascript
 {{radio-button
     value="green"
     groupValue=color
     required=true
+    tabindex=4
     disabled=true
     name="color"}}
 ```

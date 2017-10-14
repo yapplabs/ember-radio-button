@@ -19,6 +19,7 @@ export default Component.extend({
   // required - optional
   // radioClass - string
   // radioId - string
+  // tabindex - number
 
   defaultLayout: null, // ie8 support
 
@@ -27,6 +28,7 @@ export default Component.extend({
     'disabled',
     'name',
     'required',
+    'tabindex',
     'type',
     'value'
   ],

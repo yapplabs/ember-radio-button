@@ -46,9 +46,14 @@ If you want more control over the DOM, the non-block form only emits a single in
 <input id="ember345" class="ember-view" type="radio" value="green">
 ```
 
+### Examples in the test application
+
+[More example usage](https://github.com/yapplabs/ember-radio-button/tree/master/tests/dummy/app/components) can be seen in the test application.
+
+
 ## Properties
 
-Required:
+*Required:*
 
 | name       | type      | description            |
 |------------|-----------|------------------------|
@@ -56,7 +61,7 @@ Required:
 | groupValue | any       |the value representing a radio group's current value. supply the same `groupValue` to every radio-button in a group |
 
 
-Optional:
+*Optional:*
 
 | name       | type      | description            |
 |------------|-----------|------------------------|
@@ -64,12 +69,12 @@ Optional:
 | classNames | string    | applies additional classnames to the `label` element (block form only) |
 | disabled   | boolean   | applies the `disabled` property to the input element  |
 | name       | string    | applies the `name` property to the input element      |
-| radioClass | string    | additional classnames to apply to the input element   |
+| radioClass | string    | applies additional classnames to the input element    |
 | radioId    | string    | sets the `id` of the input element and the `for` property to the label element |
 | required   | boolean   | applies the `required` property to the input element  |
 | tabindex   | number    | applies a `tabindex` property to the input element    |
 
-Actions:
+*Actions:*
 
 | name       | description            |
 |------------|------------------------|

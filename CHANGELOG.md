@@ -1,3 +1,10 @@
+### 1.2.0
+ - README overhaul
+ - adds `tabindex` and `autofocus`
+ - use `Ember.isEqual` for comparison
+ - updated examples in the test application to be implemented with components
+ - fix for ember engine support
+
 ### 1.1.1
  - adds support for engines
  - Potential Breaking Change: The addon now uses templates from the addon folder.

@@ -1,88 +1,94 @@
 # ember-radio-button [![Build Status](https://travis-ci.org/yapplabs/ember-radio-button.svg?branch=master)](https://travis-ci.org/yapplabs/ember-radio-button) [![Ember Observer Score](https://emberobserver.com/badges/ember-radio-button.svg)](https://emberobserver.com/addons/ember-radio-button)
 
-**Note**: **ember-radio-button 1.0.0 requires using htmlbars**.  For applications not using htmlbars, use version 0.1.3 or the `pre-htmlbars`
- branch
+This addon provides a `radio-button` component.
 
-This ember-cli addon provides a `radio-button` component.
-
-Pass two properties to the component: `value` and `groupValue`.  A `radio-button`
- will be in a checked state when `groupValue === value`.
+A `radio-button` will be in a checked state when the `value` property matches the `groupValue` property.
+`value` should be unique per radio-button, while the same `groupValue` should be provided to each
+`radio-button` in the group.
 
 Clicking on a `radio-button` will set `groupValue` to its `value`.
 
-The component exposes a `changed` action that allows you to do something
-when a user interaction causes one of your radio buttons to update `groupValue`.
+## Usage
+
+### Block Form
+
+The block form emits a label wrapping the input element and any elements passed to the block.
 
 **Template:**
 ```javascript
-{{radio-button
-    value="green"
-    groupValue=color
-    changed="colorChanged"}}
-
 {{#radio-button
     value="blue"
     groupValue=color
-    changed="colorChanged"}}
-    Blue
+    changed="colorChanged"
+}}
+    <span>Blue</span>
 {{/radio-button}}
-```
 
-**Results in:**
-```html
-<input id="ember345" class="ember-view" type="radio" value="green">
-
+/* results in */
 <label id="ember346" class="ember-view ember-radio-button">
   <input id="ember347" class="ember-view" type="radio" value="blue">
-  Blue
+  <span>Blue</span>
 </label>
 ```
 
-You can additionally provide `autofocus` `disabled` `name` `tabindex` and `required` properties to a `radio-button`
+### Non-block form
+
+If you want more control over the DOM, the non-block form only emits a single input element
 
 ```javascript
 {{radio-button
     value="green"
     groupValue=color
-    required=true
-    tabindex=4
-    disabled=true
-    name="color"}}
-```
-
-```html
-<input id="ember345" class="ember-view" type="radio" value="green" name="color" required disabled>
-```
-
-The `radioId` and `radioClass` properties allow specifying the id and adding classnames to the input tag.  When radioId is specified, the label tag's `for` attribute will also use it.
-
-```javascript
-{{#radio-button
-    radioId="purple-radio"
-    radioClass="my-custom-class"
-    value="purple"
-    groupValue=color
+    name="colors"
     changed="colorChanged"}}
-    Purple
-{{/radio-button}}
+
+/* results in */
+<input id="ember345" class="ember-view" type="radio" value="green">
 ```
 
-```html
-<label id="ember346" for="purple-radio" class="ember-view ember-radio-button">
-  <input id="purple-radio" class="ember-view my-custom-class" type="radio" value="purple">
-  Purple
-</label>
-```
+### Examples in the test application
+
+[More example usage](https://github.com/yapplabs/ember-radio-button/tree/master/tests/dummy/app/components) can be seen in the test application.
+
+
+## Properties
+
+*Required:*
+
+| name       | type      | description            |
+|------------|-----------|------------------------|
+| value      | any       |the unique value represented by the radio button |
+| groupValue | any       |the value representing a radio group's current value. supply the same `groupValue` to every radio-button in a group |
+
+
+*Optional:*
+
+| name       | type      | description            |
+|------------|-----------|------------------------|
+| autofocus  | boolean   | applies the `autofocus` property to the input element |
+| classNames | string    | applies additional classnames to the `label` element (block form only) |
+| disabled   | boolean   | applies the `disabled` property to the input element  |
+| name       | string    | applies the `name` property to the input element      |
+| radioClass | string    | applies additional classnames to the input element    |
+| radioId    | string    | sets the `id` of the input element and the `for` property to the label element |
+| required   | boolean   | applies the `required` property to the input element  |
+| tabindex   | number    | applies a `tabindex` property to the input element    |
+
+*Actions:*
+
+| name       | description            |
+|------------|------------------------|
+| changed    | fires when user interaction causes a radio-button to update `groupValue`|
+
 
 ## Installing
 
-ember-cli 0.2.3+
-
 `ember install ember-radio-button`
 
-older ember-cli versions
+## Older versions of ember
 
-`ember install:npm ember-radio-button`
+ember-radio-button 1.0.0+ requires using htmlbars.
+Applications not using htmlbars should use version 0.1.3 or the `pre-htmlbars` branch.
 
 ## Collaborating on this repo
 

@@ -14,6 +14,7 @@ export default Component.extend({
   // value - required
   // groupValue - required
 
+  // autofocus - boolean
   // disabled - optional
   // name - optional
   // required - optional
@@ -24,6 +25,7 @@ export default Component.extend({
   defaultLayout: null, // ie8 support
 
   attributeBindings: [
+    'autofocus',
     'checked',
     'disabled',
     'name',

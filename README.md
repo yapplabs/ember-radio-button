@@ -15,7 +15,7 @@ Clicking on a `radio-button` will set `groupValue` to its `value`.
 The block form emits a label wrapping the input element and any elements passed to the block.
 
 **Template:**
-```html
+```javascript
 {{#radio-button
     value="blue"
     groupValue=color
@@ -35,7 +35,7 @@ The block form emits a label wrapping the input element and any elements passed 
 
 If you want more control over the DOM, the non-block form only emits a single input element
 
-```html
+```javascript
 {{radio-button
     value="green"
     groupValue=color
@@ -58,6 +58,8 @@ Required:
 
 Optional:
 
+| name       | type      | description            |
+|------------|-----------|------------------------|
 | autofocus  | boolean   | applies the `autofocus` property to the input element |
 | classNames | string    | applies additional classnames to the `label` element (block form only) |
 | disabled   | boolean   | applies the `disabled` property to the input element  |

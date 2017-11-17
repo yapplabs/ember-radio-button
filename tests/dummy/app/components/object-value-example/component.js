@@ -1,9 +1,5 @@
-import Ember from 'ember';
-
-const {
-  Component,
-  Object: EmberObject
-} = Ember;
+import Component from '@ember/component';
+import EmberObject from '@ember/object';
 
 export default Component.extend({
   greenObject: { name: 'green object' },

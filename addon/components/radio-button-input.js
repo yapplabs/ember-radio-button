@@ -1,11 +1,7 @@
-import Ember from 'ember';
-
-const {
-  Component,
-  computed,
-  isEqual,
-  run
-} = Ember;
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { isEqual } from '@ember/utils';
+import { run } from '@ember/runloop';
 
 export default Component.extend({
   tagName: 'input',

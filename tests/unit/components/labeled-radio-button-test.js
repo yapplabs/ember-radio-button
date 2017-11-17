@@ -1,12 +1,10 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
 import {
   moduleForComponent,
   test
 } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { alice, alice2, bob } from '../../helpers/person';
-
-const { run } = Ember;
 
 moduleForComponent('labeled-radio-button', 'LabeledRadioButtonComponent', {
   integration: true

@@ -1,11 +1,8 @@
-import Ember from 'ember';
+import { bool } from '@ember/object/computed';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { isEqual } from '@ember/utils';
 import layout from '../templates/components/radio-button';
-
-const {
-  Component,
-  computed,
-  isEqual
-} = Ember;
 
 export default Component.extend({
   tagName: '',
@@ -22,7 +19,7 @@ export default Component.extend({
   // radioId - string
 
   // polyfill hasBlock for ember versions < 1.13
-  hasBlock: computed.bool('template').readOnly(),
+  hasBlock: bool('template').readOnly(),
 
   joinedClassNames: computed('classNames', function() {
     let classNames = this.get('classNames');

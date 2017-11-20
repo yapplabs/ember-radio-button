@@ -1,11 +1,8 @@
-import Ember from 'ember';
+import { readOnly } from '@ember/object/computed';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { isEqual } from '@ember/utils';
 import layout from '../templates/components/labeled-radio-button';
-
-const {
-  Component,
-  computed,
-  isEqual
-} = Ember;
 
 export default Component.extend({
   tagName: 'label',
@@ -19,7 +16,7 @@ export default Component.extend({
     return isEqual(this.get('groupValue'), this.get('value'));
   }).readOnly(),
 
-  'for': computed.readOnly('radioId'),
+  'for': readOnly('radioId'),
 
   actions: {
     innerRadioChanged(value) {

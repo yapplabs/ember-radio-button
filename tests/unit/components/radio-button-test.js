@@ -298,3 +298,21 @@ test('it updates when setting `value` with isEqual', function(assert) {
 
   assert.equal(this.$('input').prop('checked'), false);
 });
+
+test('it binds `aria-labelledby` when specified', function(assert) {
+  assert.expect(1);
+
+  this.set('ariaLabelledby', 'green-label');
+
+  this.render(hbs`
+    {{#radio-button
+      ariaLabelledby=ariaLabelledby
+      groupValue='initial-group-value'
+      value='value'
+    }}
+      Green
+    {{/radio-button}}
+  `);
+
+  assert.equal(this.$('input').attr('aria-labelledby'), 'green-label');
+});

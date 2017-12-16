@@ -17,6 +17,7 @@ export default Component.extend({
   // radioClass - string
   // radioId - string
   // tabindex - number
+  // ariaLabelledby - string
 
   defaultLayout: null, // ie8 support
 
@@ -28,7 +29,8 @@ export default Component.extend({
     'required',
     'tabindex',
     'type',
-    'value'
+    'value',
+    'ariaLabelledby:aria-labelledby'
   ],
 
   checked: computed('groupValue', 'value', function() {

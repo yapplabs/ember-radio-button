@@ -73,6 +73,7 @@ If you want more control over the DOM, the non-block form only emits a single in
 | radioId    | string    | sets the `id` of the input element and the `for` property to the label element |
 | required   | boolean   | applies the `required` property to the input element  |
 | tabindex   | number    | applies a `tabindex` property to the input element    |
+| ariaLabelledby | string | applies an `aria-labelledby` attribute to the input element |
 
 *Actions:*
 

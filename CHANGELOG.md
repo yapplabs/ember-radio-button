@@ -1,3 +1,6 @@
+### 1.2.1
+ - adds `ariaLabelledby`
+
 ### 1.2.0
  - README overhaul
  - adds `tabindex` and `autofocus`

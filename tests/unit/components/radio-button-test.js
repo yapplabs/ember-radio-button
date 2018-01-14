@@ -316,3 +316,21 @@ test('it binds `aria-labelledby` when specified', function(assert) {
 
   assert.equal(this.$('input').attr('aria-labelledby'), 'green-label');
 });
+
+test('it binds `aria-describedby` when specified', function(assert) {
+  assert.expect(1);
+
+  this.set('ariaDescribedby', 'green-label');
+
+  this.render(hbs`
+    {{#radio-button
+      ariaDescribedby=ariaDescribedby
+      groupValue='initial-group-value'
+      value='value'
+    }}
+      Green
+    {{/radio-button}}
+  `);
+
+  assert.equal(this.$('input').attr('aria-describedby'), 'green-label');
+});

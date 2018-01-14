@@ -74,6 +74,7 @@ If you want more control over the DOM, the non-block form only emits a single in
 | required   | boolean   | applies the `required` property to the input element  |
 | tabindex   | number    | applies a `tabindex` property to the input element    |
 | ariaLabelledby | string | applies an `aria-labelledby` attribute to the input element |
+| ariaDescribedby | string | applies an `aria-describedby` attribute to the input element |
 
 *Actions:*
 

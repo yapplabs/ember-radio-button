@@ -18,6 +18,7 @@ export default Component.extend({
   // radioClass - string
   // radioId - string
   // ariaLabelledby - string
+  // ariaDescribedby - string
 
   // polyfill hasBlock for ember versions < 1.13
   hasBlock: bool('template').readOnly(),

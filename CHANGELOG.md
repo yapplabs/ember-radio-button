@@ -1,3 +1,6 @@
+### 1.2.2
+ - adds `ariaDescribedby`
+
 ### 1.2.1
  - adds `ariaLabelledby`
 

@@ -34,6 +34,8 @@ export default Component.extend({
   // is this needed here or just on radio-button-input?
   defaultLayout: null, // ie8 support
 
+  checkedClass: 'checked',
+
   checked: computed('groupValue', 'value', function() {
     return isEqual(this.get('groupValue'), this.get('value'));
   }).readOnly(),

@@ -39,7 +39,7 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
 });
 
 test('supplying `checkedClass` gives the label a custom classname when the radio is checked', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
 
   this.set('value', 'component-value');
 

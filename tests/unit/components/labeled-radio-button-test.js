@@ -38,6 +38,28 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
   assert.equal(this.$('label').hasClass('checked'), true);
 });
 
+test('it gives the label of a wrapped checkbox a user supplied `checked` className', function(assert) {
+  assert.expect(2);
+
+  this.set('value', 'component-value');
+
+  this.render(hbs`
+    {{#labeled-radio-button
+      groupValue='initial-group-value'
+      value=value
+      checkedClass="my-custom-class"
+    }}
+      Blue
+    {{/labeled-radio-button}}
+  `);
+
+  assert.equal(this.$('label').hasClass('my-custom-class'), false);
+
+  this.set('value', 'initial-group-value');
+
+  assert.equal(this.$('label').hasClass('my-custom-class'), true);
+});
+
 test('it gives the label of a wrapped radio button a `for` attribute', function(assert) {
   assert.expect(4);
 

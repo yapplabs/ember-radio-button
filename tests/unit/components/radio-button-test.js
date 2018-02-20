@@ -109,7 +109,7 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
   assert.equal(this.$('label').hasClass('blue-radio'), true, 'has class `blue-radio`');
 });
 
-test('it gives the label of a wrapped checkbox the user supplied `checked` className', function(assert) {
+test('providing `checkedClass` gives the label a custom classname when the radio is checked', function(assert) {
   assert.expect(4);
 
   this.set('groupValue', 'initial-group-value');
@@ -127,11 +127,12 @@ test('it gives the label of a wrapped checkbox the user supplied `checked` class
     {{~/radio-button}}
   `);
 
-  assert.equal(this.$('label').hasClass('my-custom-class'), false);
+  assert.equal(this.$('label').hasClass('my-custom-class'), false, 'does not have user-provided checkedClass');
 
   this.set('value', 'initial-group-value');
 
-  assert.equal(this.$('label').hasClass('my-custom-class'), true, 'has `checked` class');
+  assert.equal(this.$('label').hasClass('checked'), false, 'does not have the `checked` class');
+  assert.equal(this.$('label').hasClass('my-custom-class'), true, 'has user-provided checkedClass');
   assert.equal(this.$('label').hasClass('ember-radio-button'), true, 'has class `ember-radio-button`');
   assert.equal(this.$('label').hasClass('blue-radio'), true, 'has class `blue-radio`');
 });

@@ -38,7 +38,7 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
   assert.equal(this.$('label').hasClass('checked'), true);
 });
 
-test('it gives the label of a wrapped checkbox a user supplied `checked` className', function(assert) {
+test('supplying `checkedClass` gives the label a custom classname when the radio is checked', function(assert) {
   assert.expect(2);
 
   this.set('value', 'component-value');
@@ -53,11 +53,12 @@ test('it gives the label of a wrapped checkbox a user supplied `checked` classNa
     {{/labeled-radio-button}}
   `);
 
-  assert.equal(this.$('label').hasClass('my-custom-class'), false);
+  assert.equal(this.$('label').hasClass('my-custom-class'), false, 'does not have user-provided checkedClass');
+  assert.equal(this.$('label').hasClass('checked'), false, 'does not have the `checked` class');
 
   this.set('value', 'initial-group-value');
 
-  assert.equal(this.$('label').hasClass('my-custom-class'), true);
+  assert.equal(this.$('label').hasClass('my-custom-class'), true, 'has user-provided checkedClass');
 });
 
 test('it gives the label of a wrapped radio button a `for` attribute', function(assert) {

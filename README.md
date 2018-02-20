@@ -65,7 +65,10 @@ If you want more control over the DOM, the non-block form only emits a single in
 
 | name       | type      | description            |
 |------------|-----------|------------------------|
+| ariaDescribedby | string | applies an `aria-describedby` attribute to the input element |
+| ariaLabelledby | string | applies an `aria-labelledby` attribute to the input element |
 | autofocus  | boolean   | applies the `autofocus` property to the input element |
+| checkedClass | string  | classname to apply to the `label` element when the input it wraps is checked. block form only. defaults to `"checked"` |
 | classNames | string    | applies additional classnames to the `label` element (block form only) |
 | disabled   | boolean   | applies the `disabled` property to the input element  |
 | name       | string    | applies the `name` property to the input element      |
@@ -73,8 +76,6 @@ If you want more control over the DOM, the non-block form only emits a single in
 | radioId    | string    | sets the `id` of the input element and the `for` property to the label element |
 | required   | boolean   | applies the `required` property to the input element  |
 | tabindex   | number    | applies a `tabindex` property to the input element    |
-| ariaLabelledby | string | applies an `aria-labelledby` attribute to the input element |
-| ariaDescribedby | string | applies an `aria-describedby` attribute to the input element |
 
 *Actions:*
 

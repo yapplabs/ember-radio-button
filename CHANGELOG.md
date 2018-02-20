@@ -1,3 +1,6 @@
+### 1.2.3
+ - adds `checkedClass` to override the default "checked" classname on the label when it is checked
+
 ### 1.2.2
  - adds `ariaDescribedby`
 

@@ -35,6 +35,11 @@ export default Component.extend({
     'ariaDescribedby:aria-describedby'
   ],
 
+  didRender() {
+    // Required for IE11 to correctly report its value
+    this.$().val(this.get('value'));
+  },
+
   checked: computed('groupValue', 'value', function() {
     return isEqual(this.get('groupValue'), this.get('value'));
   }).readOnly(),

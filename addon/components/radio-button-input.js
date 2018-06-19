@@ -32,7 +32,8 @@ export default Component.extend({
     'type',
     'value',
     'ariaLabelledby:aria-labelledby',
-    'ariaDescribedby:aria-describedby'
+    'ariaDescribedby:aria-describedby',
+    'checked:aria-checked'
   ],
 
   checked: computed('groupValue', 'value', function() {

@@ -1,3 +1,6 @@
+### 1.2.4
+ - adds `aria-checked` attribute binding
+
 ### 1.2.3
  - adds `checkedClass` to override the default "checked" classname on the label when it is checked
 

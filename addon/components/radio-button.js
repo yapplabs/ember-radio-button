@@ -42,7 +42,11 @@ export default Component.extend({
 
   actions: {
     changed(newValue) {
-      this.sendAction('changed', newValue);
+      let changedAction = this.get('changed');
+      if (!changedAction && (typeof changedAction !== 'function')) {
+        return;
+      }
+      changedAction(newValue);
     }
   }
 });

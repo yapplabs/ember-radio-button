@@ -28,7 +28,7 @@ test('it updates when clicked, and triggers the `changed` action', function(asse
   assert.expect(5);
 
   let changedActionCallCount = 0;
-  this.on('changed', function() {
+  this.set('changed', () => {
     changedActionCallCount++;
   });
 
@@ -38,7 +38,7 @@ test('it updates when clicked, and triggers the `changed` action', function(asse
     {{radio-button
         groupValue=groupValue
         value='component-value'
-        changed='changed'
+        changed=(action changed)
     }}
   `);
 
@@ -57,7 +57,7 @@ test('it updates when clicked, and triggers the `changed` action', function(asse
 
 test('it updates when the browser change event is fired', function(assert) {
   let changedActionCallCount = 0;
-  this.on('changed', () => {
+  this.set('changed', () => {
     changedActionCallCount++;
   });
 
@@ -67,7 +67,7 @@ test('it updates when the browser change event is fired', function(assert) {
     {{radio-button
         groupValue=groupValue
         value='component-value'
-        changed='changed'
+        changed=(action changed)
     }}
   `);
 
@@ -93,7 +93,6 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
     {{#radio-button
         groupValue=groupValue
         value=value
-        changed='changed'
         classNames='blue-radio'
     ~}}
       Blue
@@ -120,7 +119,6 @@ test('providing `checkedClass` gives the label a custom classname when the radio
         groupValue=groupValue
         value=value
         checkedClass="my-custom-class"
-        changed='changed'
         classNames='blue-radio'
     ~}}
       Blue

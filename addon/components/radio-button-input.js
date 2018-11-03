@@ -41,7 +41,11 @@ export default Component.extend({
   }).readOnly(),
 
   sendChangedAction() {
-    this.sendAction('changed', this.get('value'));
+    let changedAction = this.get('changed');
+    if (!changedAction && (typeof changedAction !== 'function')) {
+      return;
+    }
+    changedAction(this.get('value'));
   },
 
   change() {

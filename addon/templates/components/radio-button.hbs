@@ -1,6 +1,6 @@
 {{#if hasBlock}}
   <label class="ember-radio-button {{if checked checkedClass}} {{joinedClassNames}}" for={{radioId}}>
-    {{radio-button-input
+    {{component inputComponent
         class=radioClass
         id=radioId
         autofocus=autofocus
@@ -17,7 +17,7 @@
     {{yield}}
   </label>
 {{else}}
-  {{radio-button-input
+  {{component inputComponent
       class=radioClass
       id=radioId
       autofocus=autofocus

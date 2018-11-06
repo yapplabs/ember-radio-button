@@ -7,6 +7,13 @@ import layout from '../templates/components/labeled-radio-button';
 export default Component.extend({
   tagName: 'label',
   layout,
+
+  /**
+   * @property radioButtonComponent
+   * @type {String}
+   */
+  radioButtonComponent: 'radio-button',
+
   attributeBindings: ['for'],
   classNameBindings: ['_checkedClass'],
   classNames: ['ember-radio-button'],

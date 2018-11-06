@@ -8,6 +8,12 @@ export default Component.extend({
   tagName: '',
   layout,
 
+  /**
+   * @property inputComponent
+   * @type {String}
+   */
+  inputComponent: 'radio-button-input',
+
   // value - passed in, required, the value for this radio button
   // groupValue - passed in, required, the currently selected value
 

@@ -8,6 +8,10 @@ A `radio-button` will be in a checked state when the `value` property matches th
 
 Clicking on a `radio-button` will set `groupValue` to its `value`.
 
+## Compatibility
+
+- Ember-CLI v2.18+
+
 ## Usage
 
 ### Block Form

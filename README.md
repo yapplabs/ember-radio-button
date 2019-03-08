@@ -8,10 +8,6 @@ A `radio-button` will be in a checked state when the `value` property matches th
 
 Clicking on a `radio-button` will set `groupValue` to its `value`.
 
-## Compatibility
-
-- Ember-CLI v2.18+
-
 ## Usage
 
 ### Block Form
@@ -90,6 +86,10 @@ If you want more control over the DOM, the non-block form only emits a single in
 
 ## Installing
 
+For Ember CLI < 2.18
+`ember install ember-radio-button@~1.2.0`
+
+For Ember CLI >= 2.18
 `ember install ember-radio-button`
 
 ## Older versions of ember

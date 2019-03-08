@@ -1,3 +1,7 @@
+### 2.0.0
+- Updates to  Ember CLI 3.4.4
+- Removes support for Ember CLI < 2.18
+
 ### 1.2.4
  - adds `aria-checked` attribute binding
 

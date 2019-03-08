@@ -1,6 +1,8 @@
 # unconventional js
 /blueprints/*/files/
 /vendor/
+/config/
+testem.js
 
 # compiled output
 /dist/

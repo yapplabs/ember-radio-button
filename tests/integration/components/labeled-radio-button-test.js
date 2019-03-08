@@ -19,10 +19,13 @@ module('Integration | Components | Labeled Radio Button', function(hooks) {
 
     this.set('value', 'component-value');
 
+    this.changed = function() { };
+
     await render(hbs`
       {{#labeled-radio-button
         groupValue='initial-group-value'
         value=value
+        changed=(action changed)
       }}
         Blue
       {{/labeled-radio-button}}
@@ -63,12 +66,15 @@ module('Integration | Components | Labeled Radio Button', function(hooks) {
 
     this.set('value', 'component-value');
 
+    this.changed = function() { };
+
     await render(hbs`
       {{#labeled-radio-button
         radioId='green-0'
         radioClass='my-radio-class'
         groupValue='initial-group-value'
         value=value
+        changed=(action changed)
       }}
         Green
       {{/labeled-radio-button}}

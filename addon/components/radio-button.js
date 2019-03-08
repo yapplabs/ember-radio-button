@@ -24,7 +24,7 @@ export default Component.extend({
   hasBlock: bool('template').readOnly(),
 
   joinedClassNames: computed('classNames', function() {
-    let classNames = this.get('classNames');
+    let { classNames } = this;
     if (classNames && classNames.length && classNames.join) {
       return classNames.join(' ');
     }
@@ -42,7 +42,11 @@ export default Component.extend({
 
   actions: {
     changed(newValue) {
-      this.sendAction('changed', newValue);
+      if (!this.changed || typeof this.changed !== 'function') {
+        throw new Error('`changed` must be a closure action');
+      }
+
+      this.changed(newValue);
     }
   }
 });

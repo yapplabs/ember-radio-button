@@ -41,12 +41,15 @@ export default Component.extend({
   }).readOnly(),
 
   sendChangedAction() {
-    this.sendAction('changed', this.get('value'));
+    if (!this.changed || typeof this.changed !== 'function') {
+      throw new Error('`changed` must be a closure action');
+    }
+
+    this.changed(this.value);
   },
 
   change() {
-    let value = this.get('value');
-    let groupValue = this.get('groupValue');
+    let { groupValue, value } = this;
 
     if (groupValue !== value) {
       this.set('groupValue', value); // violates DDAU

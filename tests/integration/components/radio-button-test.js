@@ -41,7 +41,7 @@ module('Integration | Components | Radio Button', function(hooks) {
       {{radio-button
           groupValue=groupValue
           value='component-value'
-          changed='changed'
+          changed=(action 'changed')
       }}
     `);
 
@@ -70,7 +70,7 @@ module('Integration | Components | Radio Button', function(hooks) {
       {{radio-button
           groupValue=groupValue
           value='component-value'
-          changed='changed'
+          changed=(action 'changed')
       }}
     `);
 
@@ -92,11 +92,13 @@ module('Integration | Components | Radio Button', function(hooks) {
     this.set('groupValue', 'initial-group-value');
     this.set('value', 'component-value');
 
+    this.actions.changed = function() {};
+
     await render(hbs`
       {{#radio-button
           groupValue=groupValue
           value=value
-          changed='changed'
+          changed=(action 'changed')
           classNames='blue-radio'
       ~}}
         Blue
@@ -118,12 +120,14 @@ module('Integration | Components | Radio Button', function(hooks) {
     this.set('groupValue', 'initial-group-value');
     this.set('value', 'component-value');
 
+    this.actions.changed = function() { };
+
     await render(hbs`
       {{#radio-button
           groupValue=groupValue
           value=value
           checkedClass="my-custom-class"
-          changed='changed'
+          changed=(action 'changed')
           classNames='blue-radio'
       ~}}
         Blue
@@ -278,12 +282,15 @@ module('Integration | Components | Radio Button', function(hooks) {
 
     this.set('value', 'component-value');
 
+    this.actions.changed = function() { };
+
     await render(hbs`
       {{#radio-button
         radioId='green-0'
         radioClass='my-radio-class'
         groupValue='initial-group-value'
         value=value
+        changed=(action 'changed')
       }}
         Green
       {{/radio-button}}

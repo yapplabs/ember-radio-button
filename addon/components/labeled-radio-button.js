@@ -24,7 +24,11 @@ export default Component.extend({
 
   actions: {
     innerRadioChanged(value) {
-      this.sendAction('changed', value);
+      if (!this.changed || typeof this.changed !== 'function') {
+        throw new Error('`changed` must be a closure action');
+      }
+
+      this.changed(value);
     }
   }
 });

@@ -19,7 +19,7 @@ The block form emits a label wrapping the input element and any elements passed 
 {{#radio-button
     value="blue"
     groupValue=color
-    changed="colorChanged"
+    changed=(action "colorChanged")
 }}
     <span>Blue</span>
 {{/radio-button}}
@@ -40,7 +40,8 @@ If you want more control over the DOM, the non-block form only emits a single in
     value="green"
     groupValue=color
     name="colors"
-    changed="colorChanged"}}
+    changed=(action "colorChanged")
+}}
 
 /* results in */
 <input id="ember345" class="ember-view" type="radio" value="green">

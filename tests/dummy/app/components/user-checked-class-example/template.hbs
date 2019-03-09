@@ -1,20 +1,20 @@
 <h3>Using a different 'checked' class</h3>
 <p style="background-color: #F7F7F7;padding: 15px 20px;">
     <code>
-      \{{#radio-button value="green" groupValue=color changed="colorChanged" checkedClass="my-custom-class"}}<br>
+      \{{#radio-button value="green" groupValue=color changed=(action "colorChanged") checkedClass="my-custom-class"}}<br>
         &nbsp;&nbsp;Green<br>
       \{{/radio-button}}<br>
-      \{{#radio-button value="blue" groupValue=color changed="colorChanged" checkedClass="my-custom-class"}}<br>
+      \{{#radio-button value="blue" groupValue=color changed=(action "colorChanged") checkedClass="my-custom-class"}}<br>
         &nbsp;&nbsp;Blue<br>
       \{{/radio-button}}<br>
     </code>
 </p>
 <strong>Selected Color:</strong> {{color}}
 <p>
-  {{#radio-button name="basic-example" value="green" groupValue=color changed="colorChanged" checkedClass="my-custom-class"}}
+  {{#radio-button name="basic-example" value="green" groupValue=color changed=(action "colorChanged") checkedClass="my-custom-class"}}
       Green
   {{/radio-button}}
-  {{#radio-button name="basic-example" value="blue" groupValue=color changed="colorChanged" checkedClass="my-custom-class"}}
+  {{#radio-button name="basic-example" value="blue" groupValue=color changed=(action "colorChanged") checkedClass="my-custom-class"}}
       Blue
   {{/radio-button}}
 </p>

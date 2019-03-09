@@ -2,20 +2,20 @@
 
 <p style="background-color: #F7F7F7;padding: 15px 20px;">
   <code>
-    \{{#radio-button value="purple" radioId="purple-radio" radioClass="my-custom-radio-class" groupValue=color changed="colorChanged"}}<br>
+    \{{#radio-button value="purple" radioId="purple-radio" radioClass="my-custom-radio-class" groupValue=color changed=(action "colorChanged")}}<br>
       &nbsp;&nbsp;Purple<br>
     \{{/radio-button}}<br>
-    \{{#radio-button value="orange" radioClass="my-custom-radio-class" radioId="orange-radio" groupValue=color changed="colorChanged"}}<br>
+    \{{#radio-button value="orange" radioClass="my-custom-radio-class" radioId="orange-radio" groupValue=color changed=(action "colorChanged")}}<br>
       &nbsp;&nbsp;Orange<br>
     \{{/radio-button}}<br>
   </code>
 </p>
 <strong>Selected Color:</strong> {{color}}
 <p>
-  {{#radio-button radioId="purple-radio" radioClass="my-custom-radio-class" value="purple" groupValue=color changed="colorChanged"}}
+  {{#radio-button radioId="purple-radio" radioClass="my-custom-radio-class" value="purple" groupValue=color changed=(action "colorChanged")}}
     Purple
   {{/radio-button}}
-  {{#radio-button radioId="orange-radio" radioClass="my-custom-radio-class" value="orange" groupValue=color changed="colorChanged"}}
+  {{#radio-button radioId="orange-radio" radioClass="my-custom-radio-class" value="orange" groupValue=color changed=(action "colorChanged")}}
     Orange
   {{/radio-button}}
 </p>

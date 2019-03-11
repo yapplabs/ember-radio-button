@@ -24,6 +24,10 @@ export default Component.extend({
 
   actions: {
     innerRadioChanged(value) {
+      if (typeof this.get('changed') === 'function') {
+        return this.get('changed')(value);
+      }
+
       this.sendAction('changed', value);
     }
   }

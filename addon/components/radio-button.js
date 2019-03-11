@@ -42,6 +42,10 @@ export default Component.extend({
 
   actions: {
     changed(newValue) {
+      if (typeof this.get('changed') === 'function') {
+        return this.get('changed')(newValue);
+      }
+
       this.sendAction('changed', newValue);
     }
   }

@@ -40,8 +40,12 @@ export default Component.extend({
     return isEqual(this.get('groupValue'), this.get('value'));
   }).readOnly(),
 
-  sendChangedAction() {
-    this.sendAction('changed', this.get('value'));
+  sendChangedAction(value) {
+    if (typeof this.get('changed') === 'function') {
+      return this.get('changed')(value);
+    }
+
+    this.sendAction('changed', value);
   },
 
   change() {
@@ -50,7 +54,7 @@ export default Component.extend({
 
     if (groupValue !== value) {
       this.set('groupValue', value); // violates DDAU
-      run.once(this, 'sendChangedAction');
+      run.once(this, 'sendChangedAction', value);
     }
   }
 });

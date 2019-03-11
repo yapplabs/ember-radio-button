@@ -6,6 +6,7 @@ import {
 } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { alice, alice2, bob } from '../../helpers/person';
+import hasEmberVersion from 'ember-test-helpers/has-ember-version';
 
 moduleForComponent('radio-button', 'RadioButtonComponent', {
   integration: true
@@ -362,3 +363,36 @@ test('it binds `aria-describedby` when specified', function(assert) {
 
   assert.equal(this.$('input').attr('aria-describedby'), 'green-label');
 });
+
+if (hasEmberVersion(1, 13)) {
+  test('it updates when clicked, and triggers the `changed` action when a closure action is passed in', function(assert) {
+    assert.expect(5);
+
+    let changedActionCallCount = 0;
+    this.on('changed', function() {
+      changedActionCallCount++;
+    });
+
+    this.set('groupValue', 'initial-group-value');
+
+    this.render(hbs`
+      {{radio-button
+          groupValue=groupValue
+          value='component-value'
+          changed=(action 'changed')
+      }}
+    `);
+
+    assert.equal(changedActionCallCount, 0);
+    assert.equal(this.$('input').prop('checked'), false);
+
+    run(() => {
+      this.$('input').trigger('click');
+    });
+
+    assert.equal(this.$('input').prop('checked'), true, 'updates element property');
+    assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
+
+    assert.equal(changedActionCallCount, 1);
+  });
+}

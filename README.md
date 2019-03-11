@@ -8,7 +8,7 @@ A `radio-button` will be in a checked state when the `value` property matches th
 
 Clicking on a `radio-button` will set `groupValue` to its `value`.
 
-## Usage
+## Usage (Ember CLI < 1.13)
 
 ### Block Form
 
@@ -41,6 +41,45 @@ If you want more control over the DOM, the non-block form only emits a single in
     groupValue=color
     name="colors"
     changed="colorChanged"}}
+
+/* results in */
+<input id="ember345" class="ember-view" type="radio" value="green">
+```
+
+## Usage (Ember CLI 1.13 - Current)
+
+### Block Form
+
+The block form emits a label wrapping the input element and any elements passed to the block.
+
+**Template:**
+```javascript
+{{#radio-button
+    value="blue"
+    groupValue=color
+    changed=(action "colorChanged")
+}}
+    <span>Blue</span>
+{{/radio-button}}
+
+/* results in */
+<label id="ember346" class="ember-view ember-radio-button">
+  <input id="ember347" class="ember-view" type="radio" value="blue">
+  <span>Blue</span>
+</label>
+```
+
+### Non-block form
+
+If you want more control over the DOM, the non-block form only emits a single input element
+
+```javascript
+{{radio-button
+    value="green"
+    groupValue=color
+    name="colors"
+    changed=(action "colorChanged")
+}}
 
 /* results in */
 <input id="ember345" class="ember-view" type="radio" value="green">

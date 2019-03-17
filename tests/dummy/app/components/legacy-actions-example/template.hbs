@@ -1,0 +1,20 @@
+<h3>Legacy Action Example</h3>
+<p style="background-color: #F7F7F7;padding: 15px 20px;">
+  <code>
+    \{{#radio-button value="maroon" groupValue=color changed="legacyColorChanged"}}<br>
+      &nbsp;&nbsp;Maroon<br>
+    \{{/radio-button}}<br>
+    \{{#radio-button value="blue" groupValue=color changed="legacyColorChanged"}}<br>
+      &nbsp;&nbsp;Blue<br>
+    \{{/radio-button}}<br>
+  </code>
+</p>
+<strong>Selected Color:</strong> {{color}}
+<p>
+  {{#radio-button name="legacy-action-example" value="maroon" groupValue=color changed="legacyColorChanged"}}
+    Maroon
+  {{/radio-button}}
+  {{#radio-button name="legacy-action-example" value="coral" groupValue=color changed="legacyColorChanged"}}
+    Coral
+  {{/radio-button}}
+</p>

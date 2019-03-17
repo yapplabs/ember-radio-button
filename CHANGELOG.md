@@ -1,3 +1,6 @@
+### 1.3.0
+ - adds support for passing a closure action to the `changed` property
+
 ### 1.2.4
  - adds `aria-checked` attribute binding
 

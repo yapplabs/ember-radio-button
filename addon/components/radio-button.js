@@ -1,4 +1,3 @@
-import { bool } from '@ember/object/computed';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { isEqual } from '@ember/utils';
@@ -19,9 +18,6 @@ export default Component.extend({
   // radioId - string
   // ariaLabelledby - string
   // ariaDescribedby - string
-
-  // polyfill hasBlock for ember versions < 1.13
-  hasBlock: bool('template').readOnly(),
 
   joinedClassNames: computed('classNames', function() {
     let classNames = this.get('classNames');

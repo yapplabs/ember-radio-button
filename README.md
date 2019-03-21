@@ -93,6 +93,10 @@ For Ember CLI < 2.18
 For Ember CLI >= 2.18
 `ember install ember-radio-button`
 
+## Legacy Action Support
+
+A string can be supplied for the `changed` property to enable legacy `sendAction` style action propagation.
+
 ## Older versions of ember
 
 ember-radio-button 1.0.0+ requires using htmlbars.

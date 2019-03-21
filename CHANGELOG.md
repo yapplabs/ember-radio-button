@@ -2,6 +2,10 @@
 - Updates to  Ember CLI 3.4.4
 - Removes support for Ember CLI < 2.18
 
+### 1.3.0
+ - adds support for passing a closure action to the `changed` property
+
+
 ### 1.2.4
  - adds `aria-checked` attribute binding
 

@@ -49,7 +49,9 @@ export default Component.extend({
       return;
     }
 
-    changedAction(value);
+    if (changedAction) {
+      changedAction(value);
+    }
   },
 
   change() {

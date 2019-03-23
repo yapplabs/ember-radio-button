@@ -40,14 +40,16 @@ export default Component.extend({
     return isEqual(this.get('groupValue'), this.get('value'));
   }).readOnly(),
 
-  sendChangedAction() {
+  invokeChangedAction() {
     let value = this.get('value');
+    let changedAction = this.get('changed');
 
-    if (typeof this.get('changed') === 'function') {
-      return this.get('changed')(value);
+    if (typeof changedAction === 'string') {
+      this.sendAction('changed', value);
+      return;
     }
 
-    this.sendAction('changed', value);
+    changedAction(value);
   },
 
   change() {
@@ -55,8 +57,8 @@ export default Component.extend({
     let groupValue = this.get('groupValue');
 
     if (groupValue !== value) {
-      this.set('groupValue', value); // violates DDAU
-      run.once(this, 'sendChangedAction');
+      this.set('groupValue', value);
+      run.once(this, 'invokeChangedAction');
     }
   }
 });

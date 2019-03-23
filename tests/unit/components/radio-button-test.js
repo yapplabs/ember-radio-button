@@ -6,7 +6,6 @@ import {
 } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { alice, alice2, bob } from '../../helpers/person';
-import hasEmberVersion from 'ember-test-helpers/has-ember-version';
 
 moduleForComponent('radio-button', 'RadioButtonComponent', {
   integration: true
@@ -39,7 +38,7 @@ test('it updates when clicked, and triggers the `changed` action', function(asse
     {{radio-button
         groupValue=groupValue
         value='component-value'
-        changed='changed'
+        changed=(action "changed")
     }}
   `);
 
@@ -56,6 +55,28 @@ test('it updates when clicked, and triggers the `changed` action', function(asse
   assert.equal(changedActionCallCount, 1);
 });
 
+test('when no action is passed, updating does not error', function(assert) {
+  assert.expect(3);
+
+  this.set('groupValue', 'initial-group-value');
+
+  this.render(hbs`
+    {{radio-button
+        groupValue=groupValue
+        value='component-value'
+    }}
+  `);
+
+  assert.equal(this.$('input').prop('checked'), false, 'starts unchecked');
+
+  run(() => {
+    this.$('input').trigger('click');
+  });
+
+  assert.equal(this.$('input').prop('checked'), true, 'updates element property');
+  assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
+});
+
 test('it updates when the browser change event is fired', function(assert) {
   let changedActionCallCount = 0;
   this.on('changed', () => {
@@ -68,7 +89,7 @@ test('it updates when the browser change event is fired', function(assert) {
     {{radio-button
         groupValue=groupValue
         value='component-value'
-        changed='changed'
+        changed=(action "changed")
     }}
   `);
 
@@ -94,7 +115,6 @@ test('it gives the label of a wrapped checkbox a `checked` className', function(
     {{#radio-button
         groupValue=groupValue
         value=value
-        changed='changed'
         classNames='blue-radio'
     ~}}
       Blue
@@ -121,7 +141,6 @@ test('providing `checkedClass` gives the label a custom classname when the radio
         groupValue=groupValue
         value=value
         checkedClass="my-custom-class"
-        changed='changed'
         classNames='blue-radio'
     ~}}
       Blue
@@ -364,35 +383,33 @@ test('it binds `aria-describedby` when specified', function(assert) {
   assert.equal(this.$('input').attr('aria-describedby'), 'green-label');
 });
 
-if (hasEmberVersion(1, 13)) {
-  test('it updates when clicked, and triggers the `changed` action when a closure action is passed in', function(assert) {
-    assert.expect(5);
+test('it updates when clicked, and supports legacy-style string `changed` actions', function(assert) {
+  assert.expect(5);
 
-    let changedActionCallCount = 0;
-    this.on('changed', function() {
-      changedActionCallCount++;
-    });
-
-    this.set('groupValue', 'initial-group-value');
-
-    this.render(hbs`
-      {{radio-button
-          groupValue=groupValue
-          value='component-value'
-          changed=(action 'changed')
-      }}
-    `);
-
-    assert.equal(changedActionCallCount, 0);
-    assert.equal(this.$('input').prop('checked'), false);
-
-    run(() => {
-      this.$('input').trigger('click');
-    });
-
-    assert.equal(this.$('input').prop('checked'), true, 'updates element property');
-    assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
-
-    assert.equal(changedActionCallCount, 1);
+  let changedActionCallCount = 0;
+  this.on('changed', function() {
+    changedActionCallCount++;
   });
-}
+
+  this.set('groupValue', 'initial-group-value');
+
+  this.render(hbs`
+    {{radio-button
+        groupValue=groupValue
+        value="component-value"
+        changed="changed"
+    }}
+  `);
+
+  assert.equal(changedActionCallCount, 0);
+  assert.equal(this.$('input').prop('checked'), false);
+
+  run(() => {
+    this.$('input').trigger('click');
+  });
+
+  assert.equal(this.$('input').prop('checked'), true, 'updates element property');
+  assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
+
+  assert.equal(changedActionCallCount, 1);
+});

@@ -38,11 +38,18 @@ export default Component.extend({
 
   actions: {
     changed(newValue) {
-      if (typeof this.get('changed') === 'function') {
-        return this.get('changed')(newValue);
+      let changedAction = this.get('changed');
+
+      // support legacy actions
+      if (typeof changedAction === 'string') {
+        this.sendAction('changed', newValue);
+        return;
       }
 
-      this.sendAction('changed', newValue);
+      // providing a closure action is optional
+      if (changedAction) {
+        changedAction(newValue);
+      }
     }
   }
 });

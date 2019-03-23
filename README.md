@@ -51,6 +51,12 @@ If you want more control over the DOM, the non-block form only emits a single in
 
 [More example usage](https://github.com/yapplabs/ember-radio-button/tree/master/tests/dummy/app/components) can be seen in the test application.
 
+## Supported Ember Versions
+
+| ember-radio-button version | supports                 |
+|----------------------------|--------------------------|
+| 2.x                        | Ember 2.8+               |
+| 1.x                        | Ember 1.11+              |
 
 ## Properties
 

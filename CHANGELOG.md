@@ -1,3 +1,8 @@
+### 2.0.0
+ - fixes `sendAction` deprecation warnings, using closure actions internally
+ - removes support for Ember versions below 2.8
+ - removes `labeled-radio-button` which was replaced by the block usage of `radio-button`
+
 ### 1.3.0
  - adds support for passing a closure action to the `changed` property
 

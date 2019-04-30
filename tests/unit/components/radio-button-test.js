@@ -384,7 +384,7 @@ test('it binds `aria-describedby` when specified', function(assert) {
 });
 
 test('it updates when clicked, and supports legacy-style string `changed` actions', function(assert) {
-  assert.expect(5);
+  assert.expect(7);
 
   let changedActionCallCount = 0;
   this.on('changed', function() {
@@ -403,12 +403,14 @@ test('it updates when clicked, and supports legacy-style string `changed` action
 
   assert.equal(changedActionCallCount, 0);
   assert.equal(this.$('input').prop('checked'), false);
+  assert.equal(this.$('input').attr('aria-checked'), 'false');
 
   run(() => {
     this.$('input').trigger('click');
   });
 
   assert.equal(this.$('input').prop('checked'), true, 'updates element property');
+  assert.equal(this.$('input').attr('aria-checked'), 'true', 'updates element property');
   assert.equal(this.get('groupValue'), 'component-value', 'updates groupValue');
 
   assert.equal(changedActionCallCount, 1);

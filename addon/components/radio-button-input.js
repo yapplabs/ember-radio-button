@@ -33,12 +33,22 @@ export default Component.extend({
     'value',
     'ariaLabelledby:aria-labelledby',
     'ariaDescribedby:aria-describedby',
-    'checked:aria-checked'
+    'checkedStr:aria-checked'
   ],
 
   checked: computed('groupValue', 'value', function() {
     return isEqual(this.get('groupValue'), this.get('value'));
   }).readOnly(),
+
+  checkedStr: computed('checked', function() {
+    let checked = this.get('checked');
+
+    if (typeof checked === 'boolean') {
+      return checked.toString();
+    }
+
+    return null;
+  }),
 
   invokeChangedAction() {
     let value = this.get('value');

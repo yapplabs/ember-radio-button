@@ -1,3 +1,6 @@
+### 2.0.1
+ - fix to use valid `aria-checked` attribute values
+
 ### 2.0.0
  - fixes `sendAction` deprecation warnings, using closure actions internally
  - removes support for Ember versions below 2.8

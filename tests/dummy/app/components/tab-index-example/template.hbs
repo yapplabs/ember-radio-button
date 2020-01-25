@@ -1,7 +1,7 @@
 <h3>Tab Index</h3>
-<strong>Selected Color:</strong> {{color}}
+<strong>Selected Color:</strong> {{this.color}}
 <br/>
-<strong>Selected Size:</strong> {{size}}
+<strong>Selected Size:</strong> {{this.size}}
 <div>
   <p>
     <div>
@@ -11,29 +11,29 @@
     <br/>
     <a href="https://www.w3.org/wiki/RadioButton">See the w3 RadioButton wiki for details</a>
   </p>
-  <input type=text tabindex="1" value="focus here to start" /> <br/>
+  <input type="text" tabindex="1" value="focus here to start" /> <br/>
   <div style="padding: 0.5rem 0;">
     Tab index 4:
     <br/>
-    {{#radio-button name="group1" tabindex=4 value="red" groupValue=color}}
+    {{#radio-button name="group1" tabindex=4 value="red" groupValue=this.color}}
       Red
     {{/radio-button}}
     <br/>
-    {{#radio-button name="group1" tabindex=4 value="blue" groupValue=color}}
+    {{#radio-button name="group1" tabindex=4 value="blue" groupValue=this.color}}
       Blue
     {{/radio-button}}
     <br/>
-    {{#radio-button name="group1" tabindex=4 value="green" groupValue=color}}
+    {{#radio-button name="group1" tabindex=4 value="green" groupValue=this.color}}
       Green
     {{/radio-button}}
   </div>
-  <input type=text tabindex="3" value="tabindex 3" /> <br/>
+  <input type="text" tabindex="3" value="tabindex 3" /> <br/>
   <div style="padding: 0.5rem 0;">
     Tab index 2:
     <br/>
-    {{radio-button name="group2" tabindex=2 value="small" groupValue=size}} Small<br/>
-    {{radio-button name="group2" tabindex=2 value="medium" groupValue=size}} Medium<br />
-    {{radio-button name="group2" tabindex=2 value="large" groupValue=size}} Large<br/>
+    {{radio-button name="group2" tabindex=2 value="small" groupValue=this.size}} Small<br/>
+    {{radio-button name="group2" tabindex=2 value="medium" groupValue=this.size}} Medium<br />
+    {{radio-button name="group2" tabindex=2 value="large" groupValue=this.size}} Large<br/>
   </div>
-  <input type=text tabindex="5" value="end here" /> <br/>
+  <input type="text" tabindex="5" value="end here" /> <br/>
 </div>

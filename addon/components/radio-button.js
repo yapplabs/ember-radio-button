@@ -32,6 +32,10 @@ export default Component.extend({
 
   checkedClass: 'checked',
 
+  checkedClassWithFallback: computed('checkedClass', function() {
+    return this.get('checkedClass') || 'checked';
+  }),
+
   checked: computed('groupValue', 'value', function() {
     return isEqual(this.get('groupValue'), this.get('value'));
   }).readOnly(),
@@ -39,12 +43,6 @@ export default Component.extend({
   actions: {
     changed(newValue) {
       let changedAction = this.get('changed');
-
-      // support legacy actions
-      if (typeof changedAction === 'string') {
-        this.sendAction('changed', newValue);
-        return;
-      }
 
       // providing a closure action is optional
       if (changedAction) {

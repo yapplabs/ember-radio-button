@@ -1,33 +1,34 @@
 {{#if hasBlock}}
-  <label class="ember-radio-button {{if checked checkedClass}} {{joinedClassNames}}" for={{radioId}}>
+  <label class="ember-radio-button {{if this.checked this.checkedClassWithFallback}} {{this.joinedClassNames}}" for={{@radioId}}>
     {{radio-button-input
-        class=radioClass
-        id=radioId
-        autofocus=autofocus
-        disabled=disabled
-        name=name
-        required=required
-        tabindex=tabindex
-        groupValue=groupValue
-        value=value
-        ariaLabelledby=ariaLabelledby
-        ariaDescribedby=ariaDescribedby
-        changed=(action "changed")}}
-
+        class=@radioClass
+        id=@radioId
+        autofocus=@autofocus
+        disabled=@disabled
+        name=@name
+        required=@required
+        tabindex=@tabindex
+        groupValue=@groupValue
+        value=@value
+        ariaLabelledby=@ariaLabelledby
+        ariaDescribedby=@ariaDescribedby
+        changed=this.changed
+    }}
     {{yield}}
   </label>
 {{else}}
   {{radio-button-input
-      class=radioClass
-      id=radioId
-      autofocus=autofocus
-      disabled=disabled
-      name=name
-      required=required
-      tabindex=tabindex
-      groupValue=groupValue
-      value=value
-      ariaLabelledby=ariaLabelledby
-      ariaDescribedby=ariaDescribedby
-      changed=(action "changed")}}
+      class=@radioClass
+      id=@radioId
+      autofocus=@autofocus
+      disabled=@disabled
+      name=@name
+      required=@required
+      tabindex=@tabindex
+      groupValue=@groupValue
+      value=@value
+      ariaLabelledby=@ariaLabelledby
+      ariaDescribedby=@ariaDescribedby
+      changed=this.changed
+  }}
 {{/if}}

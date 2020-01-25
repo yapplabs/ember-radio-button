@@ -54,11 +54,6 @@ export default Component.extend({
     let value = this.get('value');
     let changedAction = this.get('changed');
 
-    if (typeof changedAction === 'string') {
-      this.sendAction('changed', value);
-      return;
-    }
-
     if (changedAction) {
       changedAction(value);
     }

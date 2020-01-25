@@ -19,24 +19,24 @@
     \{{/radio-button}}<br>
   </code>
 </p>
-<strong>Numbers Disabled:</strong> {{numbersDisabled}}
-<strong>Number:</strong> {{number}}
+<strong>Numbers Disabled:</strong> {{this.numbersDisabled}}
+<strong>Number:</strong> {{this.number}}
 <p>
-  {{#radio-button name="disabled-example-toggle" value=true groupValue=numbersDisabled}}
+  {{#radio-button name="disabled-example-toggle" value=true groupValue=this.numbersDisabled}}
     Disabled
   {{/radio-button}}
-  {{#radio-button name="disabled-example-toggle" value=false groupValue=numbersDisabled}}
+  {{#radio-button name="disabled-example-toggle" value=false groupValue=this.numbersDisabled}}
     Enabled
   {{/radio-button}}
 </p>
 <p>
-  {{#radio-button name="disabled-example" value="one" groupValue=number disabled=numbersDisabled}}
+  {{#radio-button name="disabled-example" value="one" groupValue=this.number disabled=this.numbersDisabled}}
     One
   {{/radio-button}}
-  {{#radio-button name="disabled-example" value="two" groupValue=number disabled=numbersDisabled}}
+  {{#radio-button name="disabled-example" value="two" groupValue=this.number disabled=this.numbersDisabled}}
     Two
   {{/radio-button}}
-  {{#radio-button name="disabled-example" value="three" groupValue=number disabled=numbersDisabled}}
+  {{#radio-button name="disabled-example" value="three" groupValue=this.number disabled=this.numbersDisabled}}
     Three
   {{/radio-button}}
 </p>

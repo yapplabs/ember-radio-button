@@ -9,13 +9,13 @@
     \{{/radio-button}}
   </code>
 </p>
-<strong>No Default:</strong> {{noDefault}}
+<strong>No Default:</strong> {{this.noDefault}}
 <p>
   <form>
-    {{#radio-button value=false groupValue=noDefault name="no-default" required=true}}
+    {{#radio-button value=false groupValue=this.noDefault name="no-default" required=true}}
       Disabled
     {{/radio-button}}
-    {{#radio-button value=true groupValue=noDefault name="no-default"}}
+    {{#radio-button value=true groupValue=this.noDefault name="no-default"}}
       Enabled
     {{/radio-button}}<br>
     <button type="submit">Submit</button>

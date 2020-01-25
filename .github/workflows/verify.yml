@@ -1,0 +1,54 @@
+name: Verify
+on: [push]
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Cache Dependencies
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: Install Dependencies
+      run: yarn install
+
+  lint:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Cache Dependencies
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: Run ESLint
+      run: yarn lint:js -f tap
+    - name: Run Template Lint
+      run: yarn lint:hbs
+
+  test:
+    needs: install
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ember-try-scenario: [ember-lts-3.8, ember-lts-3.12, ember-release, ember-beta, ember-canary, ember-default, ember-classic]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Cache Dependencies
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: Run Tests
+      run: yarn ember try:one ${{ matrix.ember-try-scenario }}
+      env:
+        CI: true

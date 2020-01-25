@@ -12,12 +12,12 @@
     \{{/radio-button}}<br>
   </code>
 </p>
-<strong>selectedColorObject.name: </strong> {{selectedColorObject.name}}
+<strong>selectedColorObject.name: </strong> {{this.selectedColorObject.name}}
 <p>
-  {{#radio-button value=greenObject groupValue=selectedColorObject}}
+  {{#radio-button value=this.greenObject groupValue=this.selectedColorObject}}
     Green Object
   {{/radio-button}}
-  {{#radio-button value=blueObject groupValue=selectedColorObject}}
+  {{#radio-button value=this.blueObject groupValue=this.selectedColorObject}}
     Blue Object
   {{/radio-button}}
 </p>
@@ -38,16 +38,16 @@
   </code>
 </p>
 <div>
-  Model.number: {{reservation.number}}
+  Model.number: {{this.reservation.number}}
 </div>
 <div>
-  {{#radio-button value="one" groupValue=reservation.number}}
+  {{#radio-button value="one" groupValue=this.reservation.number}}
     One
   {{/radio-button}}
-  {{#radio-button value="two" groupValue=reservation.number}}
+  {{#radio-button value="two" groupValue=this.reservation.number}}
     Two
   {{/radio-button}}
-  {{#radio-button value="three" groupValue=reservation.number}}
+  {{#radio-button value="three" groupValue=this.reservation.number}}
     Three
   {{/radio-button}}
 </div>

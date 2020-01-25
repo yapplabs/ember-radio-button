@@ -10,12 +10,12 @@
     \{{/radio-button}}<br>
   </code>
 </p>
-<strong>Selected Color:</strong> {{color}}
+<strong>Selected Color:</strong> {{this.color}}
 <p>
-  {{#radio-button name="id-and-class" radioId="purple-radio" radioClass="my-custom-radio-class" value="purple" groupValue=color changed=(action "colorChanged")}}
+  {{#radio-button name="id-and-class" radioId="purple-radio" radioClass="my-custom-radio-class" value="purple" groupValue=this.color changed=this.colorChanged}}
     Purple
   {{/radio-button}}
-  {{#radio-button name="id-and-class" radioId="orange-radio" radioClass="my-custom-radio-class" value="orange" groupValue=color changed=(action "colorChanged")}}
+  {{#radio-button name="id-and-class" radioId="orange-radio" radioClass="my-custom-radio-class" value="orange" groupValue=this.color changed=this.colorChanged}}
     Orange
   {{/radio-button}}
 </p>

@@ -32,6 +32,10 @@ export default Component.extend({
 
   checkedClass: 'checked',
 
+  checkedClassWithFallback: computed('checkedClass', function() {
+    return this.get('checkedClass') || 'checked';
+  }),
+
   checked: computed('groupValue', 'value', function() {
     return isEqual(this.get('groupValue'), this.get('value'));
   }).readOnly(),

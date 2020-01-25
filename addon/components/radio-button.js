@@ -40,12 +40,6 @@ export default Component.extend({
     changed(newValue) {
       let changedAction = this.get('changed');
 
-      // support legacy actions
-      if (typeof changedAction === 'string') {
-        this.sendAction('changed', newValue);
-        return;
-      }
-
       // providing a closure action is optional
       if (changedAction) {
         changedAction(newValue);

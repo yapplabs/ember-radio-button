@@ -1,76 +1,22 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
-import { isEqual } from '@ember/utils';
-import { run } from '@ember/runloop';
+import Component from '@glimmer/component';
+import { once } from '@ember/runloop';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  tagName: 'input',
-  type: 'radio',
-
-  // value - required
-  // groupValue - required
-
-  // autofocus - boolean
-  // disabled - optional
-  // name - optional
-  // required - optional
-  // radioClass - string
-  // radioId - string
-  // tabindex - number
-  // ariaLabelledby - string
-  // ariaDescribedby - string
-
-  defaultLayout: null, // ie8 support
-
-  attributeBindings: [
-    'autofocus',
-    'checked',
-    'disabled',
-    'name',
-    'required',
-    'tabindex',
-    'type',
-    'value',
-    'ariaLabelledby:aria-labelledby',
-    'ariaDescribedby:aria-describedby',
-    'checkedStr:aria-checked',
-  ],
-
-  checked: computed('groupValue', 'value', function () {
-    return isEqual(this.groupValue, this.value);
-  }).readOnly(),
-
-  checkedStr: computed('checked', function () {
-    let checked = this.checked;
+export default class RadioButtonInputComponent extends Component {
+  get checkedStr() {
+    const checked = this.args.checked;
 
     if (typeof checked === 'boolean') {
       return checked.toString();
     }
 
     return null;
-  }),
+  }
 
-  invokeChangedAction() {
-    let value = this.value;
-    let changedAction = this.changed;
-
-    if (typeof changedAction === 'string') {
-      this.sendAction('changed', value);
-      return;
+  @action change() {
+    if (this.args.groupValue !== this.args.value) {
+      // this.set('groupValue', value);
+      once(this.args, 'changed', this.args.value);
     }
-
-    if (changedAction) {
-      changedAction(value);
-    }
-  },
-
-  change() {
-    let value = this.value;
-    let groupValue = this.groupValue;
-
-    if (groupValue !== value) {
-      this.set('groupValue', value);
-      run.once(this, 'invokeChangedAction');
-    }
-  },
-});
+  }
+}

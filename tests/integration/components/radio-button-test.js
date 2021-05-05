@@ -7,12 +7,6 @@ import { alice, alice2, bob } from '../../helpers/person';
 module('Integration | Components | Radio Button', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function () {
-    this.actions = {};
-    this.send = (actionName, ...args) =>
-      this.actions[actionName].apply(this, args);
-  });
-
   test('begins checked when groupValue matches value', async function (assert) {
     assert.expect(1);
 
@@ -30,17 +24,19 @@ module('Integration | Components | Radio Button', function (hooks) {
     assert.expect(5);
 
     let changedActionCallCount = 0;
-    this.actions.changed = function () {
-      changedActionCallCount++;
-    };
 
     this.set('groupValue', 'initial-group-value');
+
+    this.set('changed', function (newValue) {
+      changedActionCallCount++;
+      assert.strictEqual(newValue, 'component-value', 'updates groupValue');
+    });
 
     await render(hbs`
       <RadioButton
         @groupValue={{this.groupValue}}
         @value='component-value'
-        @changed='changed'
+        @changed={{this.changed}}
       />
     `);
 
@@ -50,20 +46,16 @@ module('Integration | Components | Radio Button', function (hooks) {
     await triggerEvent('input', 'click');
 
     assert.dom('input').isChecked('updates element property');
-    assert.strictEqual(
-      this.groupValue,
-      'component-value',
-      'updates groupValue'
-    );
 
     assert.strictEqual(changedActionCallCount, 1);
   });
 
   test('it updates when the browser change event is fired', async function (assert) {
     let changedActionCallCount = 0;
-    this.actions.changed = () => {
+    this.set('changed', function (newValue) {
       changedActionCallCount++;
-    };
+      assert.strictEqual(newValue, 'component-value', 'updates groupValue');
+    });
 
     this.set('groupValue', 'initial-group-value');
 
@@ -71,7 +63,7 @@ module('Integration | Components | Radio Button', function (hooks) {
       <RadioButton
         @groupValue={{this.groupValue}}
         @value='component-value'
-        @changed='changed'
+        @changed={{this.changed}}
       />
     `);
 
@@ -81,11 +73,7 @@ module('Integration | Components | Radio Button', function (hooks) {
     await triggerEvent('input', 'click');
 
     assert.dom('input').isChecked('updates DOM property');
-    assert.strictEqual(
-      this.groupValue,
-      'component-value',
-      'updates groupValue'
-    );
+
     assert.strictEqual(changedActionCallCount, 1);
   });
 
@@ -99,7 +87,6 @@ module('Integration | Components | Radio Button', function (hooks) {
       <RadioButton
         @groupValue={{this.groupValue}}
         @value={{this.value}}
-        @changed='changed'
         @classNames='blue-radio'
       >
         Blue
@@ -126,7 +113,6 @@ module('Integration | Components | Radio Button', function (hooks) {
         @groupValue={{this.groupValue}}
         @value={{this.value}}
         @checkedClass="my-custom-class"
-        @changed='changed'
         @classNames='blue-radio'
       >
         Blue

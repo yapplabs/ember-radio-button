@@ -1,0 +1,36 @@
+{{#if (has-block)}}
+  <label class="ember-radio-button {{if this.checked this.checkedClass}} {{this.joinedClassNames}}" for={{@radioId}}>
+    <RadioButtonInput
+      class={{@radioClass}}
+      id={{@radioId}}
+      autofocus={{@autofocus}}
+      disabled={{@disabled}}
+      name={{@name}}
+      required={{@required}}
+      tabindex={{@tabindex}}
+      @groupValue={{@groupValue}}
+      checked={{this.checked}}
+      @value={{@value}}
+      aria-labelledby={{@ariaLabelledby}}
+      aria-describedby={{@ariaDescribedby}}
+      @changed={{this.changed}}
+    />
+    {{yield}}
+  </label>
+{{else}}
+  <RadioButtonInput
+    class={{@radioClass}}
+    id={{@radioId}}
+    autofocus={{@autofocus}}
+    disabled={{@disabled}}
+    name={{@name}}
+    required={{@required}}
+    tabindex={{@tabindex}}
+    @groupValue={{@groupValue}}
+    checked={{this.checked}}
+    @value={{@value}}
+    aria-labelledby={{@ariaLabelledby}}
+    aria-describedby={{@ariaDescribedby}}
+    @changed={{this.changed}}
+  />
+{{/if}}

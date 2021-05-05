@@ -1,0 +1,28 @@
+<h3>Using objects as radio button values</h3>
+
+<strong>selectedColorObject.name: </strong> {{this.selectedColorObject.name}}
+<p>
+  <RadioButton @value={{this.greenObject}} @groupValue={{this.selectedColorObject}}>
+    Green Object
+  </RadioButton>
+  <RadioButton @value={{this.blueObject}} @groupValue={{this.selectedColorObject}}>
+    Blue Object
+  </RadioButton>
+</p>
+
+<h3>Chained group value properties</h3>
+
+<div>
+  Model.number: {{this.reservation.number}}
+</div>
+<div>
+  <RadioButton @value="one" @groupValue={{this.reservation.number}}>
+    One
+  </RadioButton>
+  <RadioButton @value="two" @groupValue={{this.reservation.number}}>
+    Two
+  </RadioButton>
+  <RadioButton @value="three" @groupValue={{this.reservation.number}}>
+    Three
+  </RadioButton>
+</div>

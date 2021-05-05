@@ -1,0 +1,10 @@
+<h3>Using a different 'checked' class</h3>
+<strong>Selected Color:</strong> {{this.color}}
+<p>
+  <RadioButton @name="user-checked-class-example" @value="green" @groupValue={{this.color}} @changed={{this.colorChanged}} @checkedClass="my-custom-class">
+      Green
+  </RadioButton>
+  <RadioButton @name="user-checked-class-example" @value="blue" @groupValue={{this.color}} @changed={{this.colorChanged}} @checkedClass="my-custom-class">
+      Blue
+  </RadioButton>
+</p>

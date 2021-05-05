@@ -5,10 +5,10 @@ export default Component.extend({
   greenObject: { name: 'green object' },
   blueObject: { name: 'blue object' },
   reservation: EmberObject.create({
-    number: 'one'
+    number: 'one',
   }),
   init() {
     this._super();
-    this.set('selectedColorObject', this.get('blueObject'));
-  }
+    this.set('selectedColorObject', this.blueObject);
+  },
 });

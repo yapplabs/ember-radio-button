@@ -5,7 +5,6 @@ export default Component.extend({
   actions: {
     legacyColorChanged(color) {
       window.alert(`Color changed to ${color}`);
-    }
-  }
+    },
+  },
 });
-

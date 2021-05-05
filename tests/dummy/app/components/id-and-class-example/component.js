@@ -5,7 +5,6 @@ export default Component.extend({
   actions: {
     colorChanged(color) {
       window.alert(`Color changed to ${color}`);
-    }
-  }
+    },
+  },
 });
-

@@ -12,11 +12,11 @@
 </p>
 <strong>Selected Color:</strong> {{color}}
 <p>
-  {{#radio-button name="id-and-class" radioId="purple-radio" radioClass="my-custom-radio-class" value="purple" groupValue=color changed=(action "colorChanged")}}
+  <RadioButton @name="id-and-class" @radioId="purple-radio" @radioClass="my-custom-radio-class" @value="purple" @groupValue={{color}} @changed={{action "colorChanged"}}>
     Purple
-  {{/radio-button}}
-  {{#radio-button name="id-and-class" radioId="orange-radio" radioClass="my-custom-radio-class" value="orange" groupValue=color changed=(action "colorChanged")}}
+  </RadioButton>
+  <RadioButton @name="id-and-class" @radioId="orange-radio" @radioClass="my-custom-radio-class" @value="orange" @groupValue={{color}} @changed={{action "colorChanged"}}>
     Orange
-  {{/radio-button}}
+  </RadioButton>
 </p>
 

@@ -12,12 +12,12 @@
 <strong>No Default:</strong> {{noDefault}}
 <p>
   <form>
-    {{#radio-button value=false groupValue=noDefault name="no-default" required=true}}
+    <RadioButton @value={{false}} @groupValue={{noDefault}} @name="no-default" @required={{true}}>
       Disabled
-    {{/radio-button}}
-    {{#radio-button value=true groupValue=noDefault name="no-default"}}
+    </RadioButton>
+    <RadioButton @value={{true}} @groupValue={{noDefault}} @name="no-default">
       Enabled
-    {{/radio-button}}<br>
+    </RadioButton><br>
     <button type="submit">Submit</button>
   </form>
 </p>

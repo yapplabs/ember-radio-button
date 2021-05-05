@@ -22,21 +22,21 @@
 <strong>Numbers Disabled:</strong> {{numbersDisabled}}
 <strong>Number:</strong> {{number}}
 <p>
-  {{#radio-button name="disabled-example-toggle" value=true groupValue=numbersDisabled}}
+  <RadioButton @name="disabled-example-toggle" @value={{true}} @groupValue={{numbersDisabled}}>
     Disabled
-  {{/radio-button}}
-  {{#radio-button name="disabled-example-toggle" value=false groupValue=numbersDisabled}}
+  </RadioButton>
+  <RadioButton @name="disabled-example-toggle" @value={{false}} @groupValue={{numbersDisabled}}>
     Enabled
-  {{/radio-button}}
+  </RadioButton>
 </p>
 <p>
-  {{#radio-button name="disabled-example" value="one" groupValue=number disabled=numbersDisabled}}
+  <RadioButton @name="disabled-example" @value="one" @groupValue={{number}} @disabled={{numbersDisabled}}>
     One
-  {{/radio-button}}
-  {{#radio-button name="disabled-example" value="two" groupValue=number disabled=numbersDisabled}}
+  </RadioButton>
+  <RadioButton @name="disabled-example" @value="two" @groupValue={{number}} @disabled={{numbersDisabled}}>
     Two
-  {{/radio-button}}
-  {{#radio-button name="disabled-example" value="three" groupValue=number disabled=numbersDisabled}}
+  </RadioButton>
+  <RadioButton @name="disabled-example" @value="three" @groupValue={{number}} @disabled={{numbersDisabled}}>
     Three
-  {{/radio-button}}
+  </RadioButton>
 </p>

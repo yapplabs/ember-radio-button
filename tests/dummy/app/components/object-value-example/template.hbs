@@ -14,12 +14,12 @@
 </p>
 <strong>selectedColorObject.name: </strong> {{selectedColorObject.name}}
 <p>
-  {{#radio-button value=greenObject groupValue=selectedColorObject}}
+  <RadioButton @value={{greenObject}} @groupValue={{selectedColorObject}}>
     Green Object
-  {{/radio-button}}
-  {{#radio-button value=blueObject groupValue=selectedColorObject}}
+  </RadioButton>
+  <RadioButton @value={{blueObject}} @groupValue={{selectedColorObject}}>
     Blue Object
-  {{/radio-button}}
+  </RadioButton>
 </p>
 
 <h3>Chained group value properties</h3>
@@ -41,14 +41,14 @@
   Model.number: {{reservation.number}}
 </div>
 <div>
-  {{#radio-button value="one" groupValue=reservation.number}}
+  <RadioButton @value="one" @groupValue={{reservation.number}}>
     One
-  {{/radio-button}}
-  {{#radio-button value="two" groupValue=reservation.number}}
+  </RadioButton>
+  <RadioButton @value="two" @groupValue={{reservation.number}}>
     Two
-  {{/radio-button}}
-  {{#radio-button value="three" groupValue=reservation.number}}
+  </RadioButton>
+  <RadioButton @value="three" @groupValue={{reservation.number}}>
     Three
-  {{/radio-button}}
+  </RadioButton>
 </div>
 

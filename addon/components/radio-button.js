@@ -19,8 +19,8 @@ export default Component.extend({
   // ariaLabelledby - string
   // ariaDescribedby - string
 
-  joinedClassNames: computed('classNames', function() {
-    let classNames = this.get('classNames');
+  joinedClassNames: computed('classNames', function () {
+    let classNames = this.classNames;
     if (classNames && classNames.length && classNames.join) {
       return classNames.join(' ');
     }
@@ -32,13 +32,13 @@ export default Component.extend({
 
   checkedClass: 'checked',
 
-  checked: computed('groupValue', 'value', function() {
-    return isEqual(this.get('groupValue'), this.get('value'));
+  checked: computed('groupValue', 'value', function () {
+    return isEqual(this.groupValue, this.value);
   }).readOnly(),
 
   actions: {
     changed(newValue) {
-      let changedAction = this.get('changed');
+      let changedAction = this.changed;
 
       // support legacy actions
       if (typeof changedAction === 'string') {
@@ -50,6 +50,6 @@ export default Component.extend({
       if (changedAction) {
         changedAction(newValue);
       }
-    }
-  }
+    },
+  },
 });

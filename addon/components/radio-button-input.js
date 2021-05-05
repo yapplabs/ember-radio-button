@@ -33,15 +33,15 @@ export default Component.extend({
     'value',
     'ariaLabelledby:aria-labelledby',
     'ariaDescribedby:aria-describedby',
-    'checkedStr:aria-checked'
+    'checkedStr:aria-checked',
   ],
 
-  checked: computed('groupValue', 'value', function() {
-    return isEqual(this.get('groupValue'), this.get('value'));
+  checked: computed('groupValue', 'value', function () {
+    return isEqual(this.groupValue, this.value);
   }).readOnly(),
 
-  checkedStr: computed('checked', function() {
-    let checked = this.get('checked');
+  checkedStr: computed('checked', function () {
+    let checked = this.checked;
 
     if (typeof checked === 'boolean') {
       return checked.toString();
@@ -51,8 +51,8 @@ export default Component.extend({
   }),
 
   invokeChangedAction() {
-    let value = this.get('value');
-    let changedAction = this.get('changed');
+    let value = this.value;
+    let changedAction = this.changed;
 
     if (typeof changedAction === 'string') {
       this.sendAction('changed', value);
@@ -65,12 +65,12 @@ export default Component.extend({
   },
 
   change() {
-    let value = this.get('value');
-    let groupValue = this.get('groupValue');
+    let value = this.value;
+    let groupValue = this.groupValue;
 
     if (groupValue !== value) {
       this.set('groupValue', value);
       run.once(this, 'invokeChangedAction');
     }
-  }
+  },
 });

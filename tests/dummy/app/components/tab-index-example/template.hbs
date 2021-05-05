@@ -15,17 +15,17 @@
   <div style="padding: 0.5rem 0;">
     Tab index 4:
     <br/>
-    {{#radio-button name="group1" tabindex=4 value="red" groupValue=color}}
+    <RadioButton @name="group1" @tabindex={{4}} @value="red" @groupValue={{color}}>
       Red
-    {{/radio-button}}
+    </RadioButton>
     <br/>
-    {{#radio-button name="group1" tabindex=4 value="blue" groupValue=color}}
+    <RadioButton @name="group1" @tabindex={{4}} @value="blue" @groupValue={{color}}>
       Blue
-    {{/radio-button}}
+    </RadioButton>
     <br/>
-    {{#radio-button name="group1" tabindex=4 value="green" groupValue=color}}
+    <RadioButton @name="group1" @tabindex={{4}} @value="green" @groupValue={{color}}>
       Green
-    {{/radio-button}}
+    </RadioButton>
   </div>
   <input type=text tabindex="3" value="tabindex 3" /> <br/>
   <div style="padding: 0.5rem 0;">

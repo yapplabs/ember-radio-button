@@ -11,10 +11,10 @@
 </p>
 <strong>Selected Color:</strong> {{color}}
 <p>
-  {{#radio-button name="basic-example" value="green" groupValue=color changed=(action "colorChanged")}}
+  <RadioButton @name="basic-example" @value="green" @groupValue={{color}} @changed={{action "colorChanged"}}>
     Green
-  {{/radio-button}}
-  {{#radio-button name="basic-example" value="blue" groupValue=color changed=(action "colorChanged")}}
+  </RadioButton>
+  <RadioButton @name="basic-example" @value="blue" @groupValue={{color}} @changed={{action "colorChanged"}}>
     Blue
-  {{/radio-button}}
+  </RadioButton>
 </p>

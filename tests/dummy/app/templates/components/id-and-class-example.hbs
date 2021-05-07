@@ -1,0 +1,10 @@
+<h3>Using radioId and radioClass properties</h3>
+<strong>Selected Color:</strong> {{this.color}}
+<p>
+  <RadioButton @name="id-and-class" @radioId="purple-radio" @radioClass="my-custom-radio-class" @value="purple" @groupValue={{this.color}} @changed={{this.colorChanged}}>
+    Purple
+  </RadioButton>
+  <RadioButton @name="id-and-class" @radioId="orange-radio" @radioClass="my-custom-radio-class" @value="orange" @groupValue={{this.color}} @changed={{this.colorChanged}}>
+    Orange
+  </RadioButton>
+</p>

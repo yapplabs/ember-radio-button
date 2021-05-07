@@ -1,0 +1,22 @@
+<h3>Disabled flag</h3>
+<strong>Numbers Disabled:</strong> {{this.numbersDisabled}}
+<strong>Number:</strong> {{this.number}}
+<p>
+  <RadioButton @name="disabled-example-toggle" @value={{true}} @groupValue={{this.numbersDisabled}}>
+    Disabled
+  </RadioButton>
+  <RadioButton @name="disabled-example-toggle" @value={{false}} @groupValue={{this.numbersDisabled}}>
+    Enabled
+  </RadioButton>
+</p>
+<p>
+  <RadioButton @name="disabled-example" @value="one" @groupValue={{this.number}} @disabled={{this.numbersDisabled}}>
+    One
+  </RadioButton>
+  <RadioButton @name="disabled-example" @value="two" @groupValue={{this.number}} @disabled={{this.numbersDisabled}}>
+    Two
+  </RadioButton>
+  <RadioButton @name="disabled-example" @value="three" @groupValue={{this.number}} @disabled={{this.numbersDisabled}}>
+    Three
+  </RadioButton>
+</p>

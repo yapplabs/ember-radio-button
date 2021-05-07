@@ -1,0 +1,13 @@
+<h3>Required</h3>
+<strong>No Default:</strong> {{this.noDefault}}
+<p>
+  <form>
+    <RadioButton @value={{false}} @groupValue={{this.noDefault}} @name="no-default" @required={{true}}>
+      Disabled
+    </RadioButton>
+    <RadioButton @value={{true}} @groupValue={{this.noDefault}} @name="no-default">
+      Enabled
+    </RadioButton><br>
+    <button type="submit">Submit</button>
+  </form>
+</p>

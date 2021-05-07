@@ -1,12 +1,8 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 import { isEqual } from '@ember/utils';
-import layout from '../templates/components/radio-button';
 
-export default Component.extend({
-  tagName: '',
-  layout,
-
+export default class RadioButtonComponent extends Component {
   // value - passed in, required, the value for this radio button
   // groupValue - passed in, required, the currently selected value
 
@@ -19,37 +15,28 @@ export default Component.extend({
   // ariaLabelledby - string
   // ariaDescribedby - string
 
-  joinedClassNames: computed('classNames', function() {
-    let classNames = this.get('classNames');
+  get joinedClassNames() {
+    const classNames = this.args.classNames;
     if (classNames && classNames.length && classNames.join) {
       return classNames.join(' ');
     }
     return classNames;
-  }),
+  }
 
-  // is this needed here or just on radio-button-input?
-  defaultLayout: null, // ie8 support
+  get checkedClass() {
+    return this.args.checkedClass || 'checked';
+  }
 
-  checkedClass: 'checked',
+  get checked() {
+    return isEqual(this.args.groupValue, this.args.value);
+  }
 
-  checked: computed('groupValue', 'value', function() {
-    return isEqual(this.get('groupValue'), this.get('value'));
-  }).readOnly(),
+  @action changed(newValue) {
+    let changedAction = this.args.changed;
 
-  actions: {
-    changed(newValue) {
-      let changedAction = this.get('changed');
-
-      // support legacy actions
-      if (typeof changedAction === 'string') {
-        this.sendAction('changed', newValue);
-        return;
-      }
-
-      // providing a closure action is optional
-      if (changedAction) {
-        changedAction(newValue);
-      }
+    // providing a closure action is optional
+    if (changedAction) {
+      changedAction(newValue);
     }
   }
-});
+}

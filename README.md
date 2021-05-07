@@ -15,14 +15,15 @@ Clicking on a `radio-button` will set `groupValue` to its `value`.
 The block form emits a label wrapping the input element and any elements passed to the block.
 
 **Template:**
+
 ```javascript
-{{#radio-button
-    value="blue"
-    groupValue=color
-    changed=(action "colorChanged")
-}}
-    <span>Blue</span>
-{{/radio-button}}
+<RadioButton
+  @value="blue"
+  @groupValue=color
+  @changed={{this.colorChanged}}
+>
+  <span>Blue</span>
+</RadioButton>
 
 /* results in */
 <label id="ember346" class="ember-view ember-radio-button">
@@ -36,12 +37,12 @@ The block form emits a label wrapping the input element and any elements passed 
 If you want more control over the DOM, the non-block form only emits a single input element
 
 ```javascript
-{{radio-button
-    value="green"
-    groupValue=color
-    name="colors"
-    changed=(action "colorChanged")
-}}
+<RadioButton
+  @value="green"
+  @groupValue={{this.color}}
+  @name="colors"
+  @changed={{this.colorChanged}}
+/>
 
 /* results in */
 <input id="ember345" class="ember-view" type="radio" value="green">
@@ -53,43 +54,42 @@ If you want more control over the DOM, the non-block form only emits a single in
 
 ## Supported Ember Versions
 
-| ember-radio-button version | supports                 |
-|----------------------------|--------------------------|
-| 2.x                        | Ember 2.8+               |
-| 1.x                        | Ember 1.11+              |
+| ember-radio-button version | supports    |
+| -------------------------- | ----------- |
+| 3.x                        | Ember 3.16+ |
+| 2.x                        | Ember 2.8+  |
+| 1.x                        | Ember 1.11+ |
 
 ## Properties
 
-*Required:*
+_Required:_
 
-| name       | type      | description            |
-|------------|-----------|------------------------|
-| value      | any       |the unique value represented by the radio button |
-| groupValue | any       |the value representing a radio group's current value. supply the same `groupValue` to every radio-button in a group |
+| name       | type | description                                                                                                         |
+| ---------- | ---- | ------------------------------------------------------------------------------------------------------------------- |
+| value      | any  | the unique value represented by the radio button                                                                    |
+| groupValue | any  | the value representing a radio group's current value. supply the same `groupValue` to every radio-button in a group |
 
+_Optional:_
 
-*Optional:*
+| name            | type    | description                                                                                                            |
+| --------------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
+| ariaDescribedby | string  | applies an `aria-describedby` attribute to the input element                                                           |
+| ariaLabelledby  | string  | applies an `aria-labelledby` attribute to the input element                                                            |
+| autofocus       | boolean | applies the `autofocus` property to the input element                                                                  |
+| checkedClass    | string  | classname to apply to the `label` element when the input it wraps is checked. block form only. defaults to `"checked"` |
+| classNames      | string  | applies additional classnames to the `label` element (block form only)                                                 |
+| disabled        | boolean | applies the `disabled` property to the input element                                                                   |
+| name            | string  | applies the `name` property to the input element                                                                       |
+| radioClass      | string  | applies additional classnames to the input element                                                                     |
+| radioId         | string  | sets the `id` of the input element and the `for` property to the label element                                         |
+| required        | boolean | applies the `required` property to the input element                                                                   |
+| tabindex        | number  | applies a `tabindex` property to the input element                                                                     |
 
-| name       | type      | description            |
-|------------|-----------|------------------------|
-| ariaDescribedby | string | applies an `aria-describedby` attribute to the input element |
-| ariaLabelledby | string | applies an `aria-labelledby` attribute to the input element |
-| autofocus  | boolean   | applies the `autofocus` property to the input element |
-| checkedClass | string  | classname to apply to the `label` element when the input it wraps is checked. block form only. defaults to `"checked"` |
-| classNames | string    | applies additional classnames to the `label` element (block form only) |
-| disabled   | boolean   | applies the `disabled` property to the input element  |
-| name       | string    | applies the `name` property to the input element      |
-| radioClass | string    | applies additional classnames to the input element    |
-| radioId    | string    | sets the `id` of the input element and the `for` property to the label element |
-| required   | boolean   | applies the `required` property to the input element  |
-| tabindex   | number    | applies a `tabindex` property to the input element    |
+_Actions:_
 
-*Actions:*
-
-| name       | description            |
-|------------|------------------------|
-| changed    | fires when user interaction causes a radio-button to update `groupValue`|
-
+| name    | description                                                              |
+| ------- | ------------------------------------------------------------------------ |
+| changed | fires when user interaction causes a radio-button to update `groupValue` |
 
 ## Installing
 
@@ -106,23 +106,23 @@ Applications not using htmlbars should use version 0.1.3 or the `pre-htmlbars` b
 
 ## Collaborating on this repo
 
-* `git clone <repository-url>` this repository
-* `cd ember-radio-button`
-* `npm install`
+- `git clone <repository-url>` this repository
+- `cd ember-radio-button`
+- `npm install`
 
 ## Running
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+- `ember serve`
+- Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ## Running Tests
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+- `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
+- `ember test`
+- `ember test --server`
 
 ## Building
 
-* `ember build`
+- `ember build`
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).

@@ -1,3 +1,15 @@
+
+## v3.0.0-beta.0 (2022-05-31)
+
+#### :boom: Breaking Change
+* [#119](https://github.com/yapplabs/ember-radio-button/pull/119) [BREAKING] Update dependencies, including ember-auto-import and add CI ([@lukemelia](https://github.com/lukemelia))
+
+#### Committers: 4
+- Gabriel Cousin ([@GabrielCousin](https://github.com/GabrielCousin))
+- Luke Melia ([@lukemelia](https://github.com/lukemelia))
+- Ray Cohen ([@raycohen](https://github.com/raycohen))
+- Will Bagby ([@bagby](https://github.com/bagby))
+
 ### 2.0.1
  - fix to use valid `aria-checked` attribute values
 

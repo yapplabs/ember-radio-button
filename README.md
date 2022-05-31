@@ -8,8 +8,11 @@ A `radio-button` will be in a checked state when the `value` property matches th
 
 Clicking on a `radio-button` will set `groupValue` to its `value`.
 
-## Usage
+* Ember.js v3.20 or above
+* Ember CLI v3.20 or above
+* Node.js v12 or above
 
+## Usage
 ### Block Form
 
 The block form emits a label wrapping the input element and any elements passed to the block.

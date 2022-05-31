@@ -1,7 +1,7 @@
 {
   "name": "ember-radio-button",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "2.0.0",
+  "description": "This addon provides a RadioButton component",
   "keywords": [
     "ember-addon"
   ],
@@ -67,12 +67,16 @@
     "qunit-dom": "^1.6.0"
   },
   "engines": {
-    "node": "10.* || >= 12"
+    "node": "14.* || >= 16"
   },
   "ember": {
     "edition": "octane"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "volta": {
+    "node": "14.19.3",
+    "yarn": "1.22.18"
   }
 }

@@ -51,6 +51,7 @@ module('Integration | Components | Radio Button', function (hooks) {
   });
 
   test('it updates when the browser change event is fired', async function (assert) {
+    assert.expect(5);
     let changedActionCallCount = 0;
     this.set('changed', function (newValue) {
       changedActionCallCount++;

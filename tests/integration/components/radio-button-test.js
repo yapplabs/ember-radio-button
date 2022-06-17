@@ -8,7 +8,7 @@ module('Integration | Components | Radio Button', function (hooks) {
   setupRenderingTest(hooks);
 
   test('begins checked when groupValue matches value', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     await render(hbs`
       <RadioButton
@@ -18,10 +18,11 @@ module('Integration | Components | Radio Button', function (hooks) {
     `);
 
     assert.dom('input').isChecked();
+    assert.dom('input').hasAttribute('aria-checked', 'true');
   });
 
   test('it updates when clicked, and triggers the `changed` action', async function (assert) {
-    assert.expect(5);
+    assert.expect(7);
 
     let changedActionCallCount = 0;
 
@@ -42,10 +43,14 @@ module('Integration | Components | Radio Button', function (hooks) {
 
     assert.strictEqual(changedActionCallCount, 0);
     assert.dom('input').isNotChecked();
+    assert.dom('input').doesNotHaveAttribute('aria-checked');
 
     await triggerEvent('input', 'click');
 
     assert.dom('input').isChecked('updates element property');
+    assert
+      .dom('input')
+      .hasAttribute('aria-checked', 'true', 'updates aria-checked property');
 
     assert.strictEqual(changedActionCallCount, 1);
   });

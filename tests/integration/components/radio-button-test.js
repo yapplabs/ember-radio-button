@@ -28,9 +28,10 @@ module('Integration | Components | Radio Button', function (hooks) {
 
     this.set('groupValue', 'initial-group-value');
 
-    this.set('changed', function (newValue) {
+    this.set('changed', (newValue) => {
       changedActionCallCount++;
       assert.strictEqual(newValue, 'component-value', 'updates groupValue');
+      this.set('groupValue', newValue);
     });
 
     await render(hbs`
@@ -43,7 +44,13 @@ module('Integration | Components | Radio Button', function (hooks) {
 
     assert.strictEqual(changedActionCallCount, 0);
     assert.dom('input').isNotChecked();
-    assert.dom('input').doesNotHaveAttribute('aria-checked');
+    assert
+      .dom('input')
+      .hasAttribute(
+        'aria-checked',
+        'false',
+        'aria-checked property starts false'
+      );
 
     await triggerEvent('input', 'click');
 

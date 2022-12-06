@@ -8,7 +8,7 @@ module('Integration | Components | Radio Button', function (hooks) {
   setupRenderingTest(hooks);
 
   test('begins checked when groupValue matches value', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     await render(hbs`
       <RadioButton
@@ -18,18 +18,20 @@ module('Integration | Components | Radio Button', function (hooks) {
     `);
 
     assert.dom('input').isChecked();
+    assert.dom('input').hasAttribute('aria-checked', 'true');
   });
 
   test('it updates when clicked, and triggers the `changed` action', async function (assert) {
-    assert.expect(5);
+    assert.expect(7);
 
     let changedActionCallCount = 0;
 
     this.set('groupValue', 'initial-group-value');
 
-    this.set('changed', function (newValue) {
+    this.set('changed', (newValue) => {
       changedActionCallCount++;
       assert.strictEqual(newValue, 'component-value', 'updates groupValue');
+      this.set('groupValue', newValue);
     });
 
     await render(hbs`
@@ -42,10 +44,20 @@ module('Integration | Components | Radio Button', function (hooks) {
 
     assert.strictEqual(changedActionCallCount, 0);
     assert.dom('input').isNotChecked();
+    assert
+      .dom('input')
+      .hasAttribute(
+        'aria-checked',
+        'false',
+        'aria-checked property starts false'
+      );
 
     await triggerEvent('input', 'click');
 
     assert.dom('input').isChecked('updates element property');
+    assert
+      .dom('input')
+      .hasAttribute('aria-checked', 'true', 'updates aria-checked property');
 
     assert.strictEqual(changedActionCallCount, 1);
   });

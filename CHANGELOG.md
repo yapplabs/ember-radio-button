@@ -1,4 +1,6 @@
 
+## v3.0.0-beta.1 (2022-12-06)
+
 ## v3.0.0-beta.0 (2022-05-31)
 
 #### :boom: Breaking Change

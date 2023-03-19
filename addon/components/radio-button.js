@@ -32,7 +32,13 @@ export default class RadioButtonComponent extends Component {
   }
 
   @action changed(newValue) {
-    let changedAction = this.args.changed;
+    let changedAction = this.args.changed,
+      onBeforeChangeAction = this.args.onBeforeChange;
+
+    //todo: make it required, instead of optional
+    if (onBeforeChangeAction) {
+      onBeforeChangeAction(newValue);
+    }
 
     // providing a closure action is optional
     if (changedAction) {

@@ -31,13 +31,13 @@ module('Integration | Components | Radio Button', function (hooks) {
     this.set('changed', (newValue) => {
       changedActionCallCount++;
       assert.strictEqual(newValue, 'component-value', 'updates groupValue');
-      this.set('groupValue', newValue);
     });
 
     await render(hbs`
       <RadioButton
         @groupValue={{this.groupValue}}
         @value='component-value'
+        @onBeforeChange={{fn (mut this.groupValue)}}
         @changed={{this.changed}}
       />
     `);

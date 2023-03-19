@@ -22,7 +22,8 @@ The block form emits a label wrapping the input element and any elements passed 
 ```javascript
 <RadioButton
   @value="blue"
-  @groupValue=color
+  @groupValue={{this.color}}
+  @onBeforeChange={{fn (mut this.color)}}
   @changed={{this.colorChanged}}
 >
   <span>Blue</span>
@@ -44,6 +45,7 @@ If you want more control over the DOM, the non-block form only emits a single in
   @value="green"
   @groupValue={{this.color}}
   @name="colors"
+  @onBeforeChange={{fn (mut this.color)}}
   @changed={{this.colorChanged}}
 />
 
@@ -90,9 +92,10 @@ _Optional:_
 
 _Actions:_
 
-| name    | description                                                              |
-| ------- | ------------------------------------------------------------------------ |
-| changed | fires when user interaction causes a radio-button to update `groupValue` |
+| name    | description                                                              | optional |
+| ------- | ------------------------------------------------------------------------ |--------- |
+| changed | fires when user interaction causes a radio-button to update `groupValue` | true     |
+| onBeforeChange | mutate the passed prop i.e `groupValue` with selected radio value | false    |
 
 ## Installing
 

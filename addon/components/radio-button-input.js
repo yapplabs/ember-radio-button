@@ -15,7 +15,6 @@ export default class RadioButtonInputComponent extends Component {
 
   @action change() {
     if (this.args.groupValue !== this.args.value) {
-      once(this.args, 'onBeforeChange', this.args.value);
       once(this.args, 'changed', this.args.value);
     }
   }
